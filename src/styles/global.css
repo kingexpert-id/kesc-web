@@ -16,6 +16,12 @@
   --text-h2: 1.375rem;             --text-h2--line-height: 1.75rem;
   --text-h3: 1.125rem;             --text-h3--line-height: 1.5rem;
 
+  /* Typescale konstan — DS 2.2/2.3 (nilai sama di semua mode) */
+--text-body-lg: 1.125rem;   --text-body-lg--line-height: 1.6875rem;   /* 18/27 */
+--text-body: 1rem;          --text-body--line-height: 1.625rem;       /* 16/26 */
+--text-body-sm: 0.875rem;   --text-body-sm--line-height: 1.3125rem;   /* 14/21 */
+--text-caption: 0.75rem;    --text-caption--line-height: 1.0625rem;   /* 12/17 */
+
   /* Motion (7.2) */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
