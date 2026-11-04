@@ -1,24 +1,13 @@
 ---
-import '../styles/global.css';
-import Button from '../components/Button.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
 ---
-<html lang="id">
-  <body class="bg-surface-page p-8">
-    <div class="flex items-center gap-4">
-      <Button variant="primary">Daftar Sekarang</Button>
-      <Button variant="secondary">Lihat Detail</Button>
-      <Button variant="outline">Batal</Button>
-      <Button variant="text">Lihat semua</Button>
-      <Button variant="primary" disabled>Disabled</Button>
-    </div>
-    <div class="mt-6 flex items-end gap-4">
-      <Button size="large" variant="primary">Large 56</Button>
-      <Button variant="primary">Default 48</Button>
-      <Button size="small" variant="primary">Small 40</Button>
-      <Button size="xsmall" variant="primary">XSmall 32</Button>
-    </div>
-    <div class="mt-6">
-      <Button href="#" variant="primary">Sebagai link</Button>
-    </div>
-  </body>
-</html>
+<BaseLayout title="Beranda — KESC & KEYSI 2027">
+  <Navbar active="Beranda" />
+  <main>
+    <Hero />
+  </main>
+  <Footer />
+</BaseLayout>

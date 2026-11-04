@@ -1,0 +1,43 @@
+---
+// Hero — 1:1
+import Button from './Button.astro';
+---
+
+<section class="relative overflow-hidden bg-[linear-gradient(151.68deg,var(--color-campaign-navy)_0%,var(--color-campaign-indigo-deep)_76.06%,var(--color-campaign-indigo)_100%)]">
+  <div class="mx-auto flex max-w-[1440px] flex-col gap-10 px-6 py-16 md:px-8 lg:min-h-[776px] lg:flex-row lg:items-center lg:gap-[30px] lg:px-[72px] min-[1440px]:px-[100px] lg:py-[100px]">
+    <!-- Konten kiri -->
+    <div class="flex w-full flex-col items-start gap-3 lg:min-w-0 lg:flex-[605_1_0%]">
+      <div class="rounded-full bg-brand-50 px-3 py-1">
+        <p class="font-heading text-lg font-semibold leading-[27px] text-brand-700">
+          “Growing with Science, Advancing with Technology!”
+        </p>
+      </div>
+      <h1 class="font-heading text-[44px] font-bold leading-[51px] text-[#fafafa]">
+        Wujudkan Prestasimu<br />di KESC &amp; KEYSI 2027
+      </h1>
+      <p class="font-sans text-lg leading-[27px] text-[#fafafa]">
+        King Expert Science Competition (KESC) merupakan kompetisi sains tingkat nasional
+        tahunan yang diselenggarakan oleh King Expert dengan sistem daring (online) terpercaya
+        untuk SD, SMP, SMA serta terbuka untuk Mahasiswa melalui cabang King Expert Young
+        Science Ideation (KEYSI). Asah kemampuanmu, menangkan medali, dan kumpulkan pengalaman
+        dan portofolio prestasi untuk persiapan beasiswa, persiapan OSN hingga pendaftaran
+        SNBP dan PPDB!
+      </p>
+      <div class="flex items-center gap-4">
+        <Button variant="terang" size="large" href="https://forms.fillout.com/t/9w7zjLbFLAus">Daftar Sekarang</Button>
+        <a href="#" class="flex items-center gap-2 py-3 font-heading text-base font-semibold leading-4 text-[#fafafa] transition-colors hover:text-white/70">
+          Lihat Program
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- Ilustrasi kanan (muncul mulai desktop) -->
+    <div class="hidden lg:block lg:flex-[637_1_0%]">
+      <img src="/images/hero-ilustrasi.png" alt="Ilustrasi siswa merayakan prestasi" width="1272" height="786" class="w-full" />
+    </div>
+  </div>
+  <!-- Ombek transisi ke section berikutnya -->
+  <img src="/images/wave-bawah.svg" alt="" class="absolute bottom-0 left-0 w-full" aria-hidden="true" />
+</section>
