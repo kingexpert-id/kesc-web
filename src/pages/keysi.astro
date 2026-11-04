@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import HeroKeysi from '../components/HeroKeysi.astro';
+import PanelSemangat from '../components/PanelSemangat.astro';
+import TopikKeysi from '../components/TopikKeysi.astro';
+import HadiahKeysi from '../components/HadiahKeysi.astro';
+import MekanismeKeysi from '../components/MekanismeKeysi.astro';
+import PosterSection from '../components/PosterSection.astro';
+import CtaLangkah from '../components/CtaLangkah.astro';
+import FaqKeysi from '../components/FaqKeysi.astro';
+---
+
+<BaseLayout title="KEYSI 2027 — King Expert Young Science Ideation">
+  <Navbar active="Program Kami" />
+  <main>
+    <HeroKeysi />
+    <PanelSemangat />
+    <TopikKeysi />
+    <HadiahKeysi />
+    <MekanismeKeysi />
+    <PosterSection />
+    <CtaLangkah />
+    <FaqKeysi />
+  </main>
+  <Footer />
+</BaseLayout>

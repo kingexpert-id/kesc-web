@@ -1,0 +1,20 @@
+---
+interface Props {
+  nomor: string;
+  judul: string;
+  deskripsi: string;
+  svg: string;
+}
+const { nomor, judul, deskripsi, svg } = Astro.props;
+---
+
+<article class="flex flex-col items-start gap-4 self-stretch rounded-2xl border border-slate-200 bg-white p-6">
+  <div class="flex w-full items-center justify-between">
+    <div class="flex size-12 items-center justify-center overflow-clip rounded-xl border border-slate-200 bg-[#F0F6FF]">
+      <span class="block size-6" set:html={svg} />
+    </div>
+    <p class="text-body-sm tracking-[0.3px] text-slate-600">{nomor}</p>
+  </div>
+  <h3 class="text-h3 font-semibold text-slate-900">{judul}</h3>
+  <p class="text-body text-slate-600">{deskripsi}</p>
+</article>

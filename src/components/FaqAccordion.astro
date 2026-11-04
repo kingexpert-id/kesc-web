@@ -1,0 +1,29 @@
+---
+interface Props {
+  pertanyaan: string;
+  jawaban: string; // boleh berisi <ul>...<li>...</ul>
+  terbuka?: boolean;
+}
+const { pertanyaan, jawaban, terbuka = false } = Astro.props;
+---
+
+<details class="group rounded-xl border border-slate-200 bg-[#FAFAFA]" open={terbuka}>
+  <summary class="flex cursor-pointer list-none items-center gap-4 p-6 group-open:pb-4">
+    <span class="flex-1 text-left text-base leading-[26px] font-semibold text-slate-900">
+      {pertanyaan}
+    </span>
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      class="shrink-0 text-slate-600 transition-transform duration-150 group-open:rotate-180 group-open:text-slate-900"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </summary>
+  <div class="px-6 pb-6">
+    <div class="text-body text-slate-600" set:html={jawaban} />
+  </div>
+</details>

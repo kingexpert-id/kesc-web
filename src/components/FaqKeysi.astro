@@ -1,0 +1,42 @@
+---
+import FaqAccordion from './FaqAccordion.astro';
+
+const daftarFaq = [
+  {
+    pertanyaan: 'Apa saja persyaratan yang dibutuhkan untuk mendaftar KEYSI 2027?',
+    jawaban: `<ul class="list-disc ps-6"><li>Pas foto terbaru (close-up, wajah terlihat jelas), boleh berpakaian seragam atau bebas rapi.</li><li>Kartu Pelajar atau Kartu Tanda Mahasiswa (KTM) atau surat keterangan dari sekolah/kampus yang mencantumkan NISN/NIM (salah satu saja sudah cukup).</li><li>Bukti transfer pembayaran pendaftaran.</li><li>Alamat email aktif &amp; nomor WhatsApp (untuk penyampaian informasi akun peserta lebih lanjut).</li></ul>`,
+    terbuka: true,
+  },
+  {
+    pertanyaan: 'Apakah boleh menggunakan AI (Kecerdasan Buatan) dalam menulis esai KEYSI 2027?',
+    jawaban: 'Karya yang kamu kumpulkan harus tetap orisinal. Kamu perlu melampirkan Lembar Penyataan Orisinalitas yang menyatakan karyamu belum pernah dipublikasikan, diikutsertakan, atau memenangkan penghargaan di ajang lain. Kamu juga menyatakan bersedia didiskualifikasi apabila terbukti melanggar ketentuan orisinalitas, termasuk penggunaan AI (Kecerdasan Buatan) di luar batas kewajaran yang ditentukan Tim KEYSI.',
+  },
+  {
+    pertanyaan: 'Apakah video wajib dikumpulkan saat mendaftar KEYSI 2027?',
+    jawaban: 'Tidak, Video bersifat opsional sebagai nilai tambah, bukan syarat wajib. Karya utama yang wajib dikumpulkan adalah esai.',
+  },
+  {
+    pertanyaan: 'Kalau ingin menyertakan video sebagai nilai tambah, bagaimana formatnya?',
+    jawaban: 'Karya utama yang wajib dikumpulkan tetap esai dalam format PDF (3-4 halaman). Kalau kamu ingin menambahkan video sebagai nilai tambah (optional), durasinya maksimal 3 menit dan bisa diunggah ke platform media sosial pilihanmu (Instagram, TikTok, atau Youtube). Video wajib mencantumkan link hasil karya yang sudah jadi dan tag akun resmi KESC &amp; King Expert (@kesc.id dan @kingexpert.id) serta hashtag resmi event.',
+  },
+  {
+    pertanyaan: 'Apakah KEYSI 2027 bisa diikuti secara Individu atau Tim?',
+    jawaban: 'Keduanya boleh! Kamu bisa mendaftar secara individu atau tim (maksimal 3 orang per tim). Baik Individu maupun Tim, maksimal hanya boleh mengumpulkan 1 karya esai.',
+  },
+  {
+    pertanyaan: 'Bagaimana jika terlambat mengumpulkan karya KEYSI 2027?',
+    jawaban: 'Karya yang dikumpulkan melewati batas waktu tidak akan diterima. Deadline bersifat mutlak dan tidak dapat diberikan dispensasi dalam bentuk apapun. Jadi, pastikan submit sebelum batas akhir (deadline) ya!',
+  },
+];
+---
+
+<section class="bg-[#F5F5F5] px-6 py-16 md:px-14 lg:px-[72px] min-[1440px]:px-[100px]">
+  <div class="mx-auto flex max-w-[1240px] flex-col items-center gap-8">
+    <h2 class="max-w-[1000px] text-center text-h2 font-semibold text-slate-900">
+      Frequently Asked Questions (FAQ) KEYSI 2027
+    </h2>
+    <div class="flex w-full max-w-[816px] flex-col gap-4">
+      {daftarFaq.map((f) => <FaqAccordion {...f} />)}
+    </div>
+  </div>
+</section>

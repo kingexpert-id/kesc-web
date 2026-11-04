@@ -1,0 +1,57 @@
+---
+const ikon = (path: string) =>
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">${path}</svg>`;
+const kartu = [
+  {
+    judul: 'Esai Nasional',
+    tag: 'Karya utama',
+    deskripsi: 'Karya utama berupa Esai Nasional, ditulis sepanjang 3–4 halaman dengan jumlah kata maksimal 1.000 kata.',
+    svg: ikon('<path d="M20 8L14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8ZM14 2V8H20M8 12H16M8 16H16" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
+  },
+  {
+    judul: 'Video Pendukung',
+    tag: 'Opsional',
+    deskripsi: 'Peserta dapat menyertakan Video sebagai nilai tambah (bersifat opsional, bukan syarat wajib).',
+    svg: ikon('<path d="M5 5H19C20.1046 5 21 5.89543 21 7V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5Z" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/><path d="M10 9L15 12L10 15V9Z" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
+  },
+  {
+    judul: 'Unggah Video',
+    tag: 'Jika menyertakan video',
+    deskripsi: 'Video diunggah ke media sosial (Instagram/TikTok/YouTube) dengan men-tag akun resmi KESC dan King Expert, serta akun sponsor (tag sponsor bersifat opsional).',
+    svg: ikon('<path d="M12 16V3M17 8L12 3L7 8M4 15V20C4 20.2652 4.10536 20.5196 4.29289 20.7071C4.48043 20.8946 4.73478 21 5 21H19C19.2652 21 19.5196 20.8946 19.7071 20.7071C19.8946 20.5196 20 20.2652 20 20V15" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
+  },
+];
+---
+
+<section class="bg-[#F5F5F5] px-6 py-16 md:px-14 lg:px-[72px] min-[1440px]:px-[100px]">
+  <div class="mx-auto flex max-w-[1240px] flex-col items-center gap-10">
+    <header class="flex w-full flex-col items-center gap-3 text-center">
+      <p class="text-body-sm text-[#004AAD]">DARI GAGASAN MENJADI KARYA</p>
+      <h2 class="text-h2 font-semibold text-slate-900">Mekanisme KEYSI</h2>
+    </header>
+    <div class="flex w-full flex-col items-center gap-6 lg:flex-row lg:gap-16">
+      <!-- Kartu -->
+      <div class="flex w-full flex-col items-start gap-4 lg:min-w-[500px] lg:flex-1">
+        {kartu.map((k) => (
+          <article class="flex w-full items-start gap-5 rounded-2xl border border-slate-200 bg-white p-6">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-[10px] border border-slate-200 bg-[#F0F6FF]">
+              <span class="block size-6" set:html={k.svg} />
+            </div>
+            <div class="flex min-w-0 flex-1 flex-col items-start gap-3">
+              <div class="flex w-full flex-wrap items-center gap-x-3 gap-y-2">
+                <h3 class="text-h3 font-semibold whitespace-nowrap text-slate-900">{k.judul}</h3>
+                <span class="rounded-md bg-[#EEEAFE] px-2 py-1 text-body-sm tracking-[0.3px] text-[#5053A2]">{k.tag}</span>
+              </div>
+              <p class="text-body text-slate-600">{k.deskripsi}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <!-- Ilustrasi -->
+      <div class="relative flex w-full max-w-[340px] items-center justify-center py-8 lg:h-[510px] lg:w-[400px] lg:max-w-none">
+        <span class="absolute size-[300px] rounded-full bg-[#EEEAFE] lg:size-[370px]"></span>
+        <img src="/images/mekanisme-scientist.png" alt="Ilustrasi ilmuwan" width="680" height="1020" loading="lazy" class="relative w-full max-w-[340px] object-contain" />
+      </div>
+    </div>
+  </div>
+</section>

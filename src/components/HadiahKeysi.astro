@@ -1,0 +1,148 @@
+---
+import FaqAccordion from './FaqAccordion.astro'; // tidak dipakai di sini — hapus jika tak perlu
+const tautanDaftar = 'https://forms.fillout.com/t/9w7zjLbFLAus'; // TODO: konfirmasi link KEYSI
+
+const wave = `<svg width="100%" height="100%" viewBox="0 0 1440 56.7745" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 24.3745C240 -11.6255 360 53.1745 720 24.3745C1080 -4.42546 1200 -11.6255 1440 24.3745V56.7745H0V24.3745Z" fill="#F5F5F5"/></svg>`;
+const ikonInfo = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16v-4" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8h.01" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+const hadiah = ['Uang pembinaan', 'Plakat', 'Sertifikat resmi'];
+const kategoriSpesial = [
+  { judul: 'Best Innovation', deskripsi: 'Untuk gagasan paling inovatif, orisional, dan topik belum banyak diangkat sebelumnya.', img: '/images/hadiah-best-innovation.png', alt: 'Ilustrasi Best Innovation' },
+  { judul: 'Most Applicable Idea', deskripsi: 'Untuk solusi paling realistis untuk diterapkan di masyarakat.', img: '/images/hadiah-most-applicable.png', alt: 'Ilustrasi Most Applicable Idea' },
+  { judul: 'Best Scientific Paper', deskripsi: 'Untuk esai dengan kualitas penulisan ilmiah terbaik sesuai kaidah akademik.', img: '/images/hadiah-best-scientific.png', alt: 'Ilustrasi Best Scientific Paper' },
+  { judul: 'Most Creative Video', deskripsi: 'Untuk video pendukung esai dengan konsep dan eksekusi paling kreatif.', img: '/images/hadiah-most-creative.png', alt: 'Ilustrasi Most Creative Video' },
+];
+---
+
+<section
+  class="relative overflow-clip bg-[linear-gradient(127.69deg,#F0F6FF_0%,#EEEAFE_55%,#E7F8FC_100%)] px-6 py-16 md:px-14 lg:px-[72px] min-[1440px]:px-[100px] lg:py-[100px]"
+>
+  <div class="pointer-events-none absolute inset-x-0 top-0 -rotate-180 -scale-x-100 overflow-hidden h-8 lg:h-[72px]" aria-hidden="true" set:html={wave}></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden h-8 lg:h-[72px]" aria-hidden="true" set:html={wave}></div>
+
+  <div class="relative mx-auto flex w-full max-w-[1240px] flex-col items-center gap-8">
+    <!-- Pricing -->
+    <div class="flex w-full flex-col items-center gap-8">
+      <header class="flex w-full flex-col items-center gap-2 text-center">
+        <p class="text-xs leading-[17px] font-semibold tracking-[1px] text-[#004AAD]">PENDAFTARAN KEYSI 2027</p>
+        <h2 class="text-h2 font-semibold text-slate-900">Biaya Pendaftaran Kompetisi KEYSI 2027</h2>
+        <p class="text-body text-slate-600">Dua periode harga — makin daftar awal, makin hemat</p>
+      </header>
+
+      <div class="flex w-full flex-col gap-6 md:flex-row">
+        <!-- Regular -->
+        <article class="flex w-full flex-col items-start gap-2 rounded-2xl border border-slate-200 bg-[#FAFAFA] p-8 shadow-[0_1px_1.5px_rgba(15,23,42,0.10)] md:h-[378px] md:w-[320px] md:shrink-0">
+          <span class="rounded-full bg-[#F1F5F9] px-3 py-2 text-xs leading-[17px] font-semibold tracking-[1px] text-[#334155]">REGULAR</span>
+          <h3 class="text-h3 font-semibold text-slate-900">Regular</h3>
+          <p class="text-h1 font-bold text-slate-900">Rp 125.000</p>
+          <p class="text-xs leading-[17px] tracking-[0.3px] text-slate-600">/peserta atau tim</p>
+          <p class="text-body-sm tracking-[0.3px] text-slate-600">16 Desember 2026 – 18 Januari 2027</p>
+          <p class="text-body-sm tracking-[0.3px] text-slate-600">
+            Harga per peserta atau tim (maksimal 3 orang) untuk 1 karya esai.
+          </p>
+          <div class="min-h-2 flex-1"></div>
+          <a
+            href={tautanDaftar}
+            target="_blank"
+            rel="noopener"
+            class="flex h-12 w-full items-center justify-center rounded-2xl bg-[#004AAD] px-6 text-base font-semibold text-[#FAFAFA] transition hover:opacity-90 active:opacity-80"
+          >
+            Daftar KEYSI 2027
+          </a>
+        </article>
+
+        <!-- Early Bird -->
+        <article class="relative flex w-full flex-col items-start gap-2 rounded-2xl bg-gradient-to-b from-[#004AAD] to-[#003985] p-8 shadow-[0_10px_12px_rgba(15,23,42,0.14)] md:h-[378px] md:flex-1">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-[#F5B903] px-3 py-1 text-body-sm tracking-[0.3px] whitespace-nowrap text-slate-900">PALING HEMAT</span>
+          <span class="rounded-full bg-white/15 px-3 py-2 text-xs leading-[17px] font-semibold tracking-[1px] text-[#FAFAFA]">PALING HEMAT</span>
+          <h3 class="text-h3 font-semibold text-[#FAFAFA]">Early Bird</h3>
+          <p class="text-h1 font-semibold text-[#FAFAFA]">Rp 118.750</p>
+          <p class="text-xs leading-[17px] tracking-[0.3px] text-[#FAFAFA]">/peserta atau tim</p>
+          <p class="text-body-sm tracking-[0.3px] text-[#FAFAFA]">6 November – 15 Desember 2026</p>
+          <p class="text-body-sm tracking-[0.3px] text-[#FAFAFA]">
+            Harga per peserta atau tim (maksimal 3 orang) untuk 1 karya esai.
+          </p>
+          <div class="min-h-2 flex-1"></div>
+          <a
+            href={tautanDaftar}
+            target="_blank"
+            rel="noopener"
+            class="flex h-12 w-full items-center justify-center rounded-2xl bg-[#F38D4A] px-6 text-base font-semibold text-slate-900 transition hover:opacity-90 active:opacity-80"
+          >
+            Daftar KEYSI 2027
+          </a>
+        </article>
+      </div>
+
+      <p class="flex items-center gap-2 text-body-sm tracking-[0.3px] text-slate-600">
+        <span class="size-2 rounded-full bg-[#F5B903]"></span>
+        Pendaftaran dibuka 6 November 2026 · ditutup 18 Januari 2027
+      </p>
+    </div>
+
+    <!-- Intro hadiah -->
+    <div class="flex w-full flex-col items-center gap-6 text-center">
+      <h2 class="text-h2 font-semibold text-slate-900">Hadiah &amp; Kategori Juara KEYSI 2027</h2>
+      <p class="max-w-[680px] text-body-lg text-slate-600">
+        King Expert Young Science Ideation (KEYSI) memberikan kamu lebih banyak peluang untuk
+        diapresiasi dari berbagai sisi ide, kreatifitas, dan keunikan karyamu!
+      </p>
+    </div>
+
+    <!-- Bento hadiah -->
+    <div class="flex w-full flex-col gap-6 lg:flex-row lg:gap-[30px]">
+      <!-- Kartu Juara Utama -->
+      <article class="flex w-full flex-col items-start gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_1px_1.5px_rgba(15,23,42,0.10)] lg:h-[765px] lg:w-[605px] lg:shrink-0">
+        <div class="flex w-full items-center justify-between">
+          <p class="text-body-sm font-semibold text-[#5053A2]">KEYSI 2027</p>
+          <p class="text-body-sm font-semibold text-[#5053A2]">Juara Utama</p>
+        </div>
+        <div class="flex min-h-0 w-full flex-1 items-center justify-center rounded-xl py-4">
+          <img src="/images/hadiah-medali.png" alt="Medali KEYSI" width="500" height="574" loading="lazy" class="h-[287px] w-[250px] object-contain" />
+        </div>
+        <h3 class="text-h3 font-semibold text-slate-900">Juara Utama (1,2, dan 3)</h3>
+        <p class="text-body text-slate-600">
+          Juara untuk esai dengan penilaian keseluruhan terbaik. Raih uang pembinaan, plakat, dan
+          sertifikat resmi.
+        </p>
+        <div class="flex w-full flex-wrap gap-2">
+          {hadiah.map((h) => (
+            <span class="flex h-10 items-center rounded-lg bg-[#F0F6FF] px-3 text-body-sm tracking-[0.3px] text-[#004AAD]">{h}</span>
+          ))}
+        </div>
+      </article>
+
+      <!-- Kartu Kategori Spesial -->
+      <article class="flex w-full flex-1 flex-col items-start gap-6 rounded-2xl border border-slate-200 bg-[#FAFAFA] p-8 shadow-[0_1px_1.5px_rgba(15,23,42,0.10)]">
+        <div class="flex flex-col gap-3">
+          <h3 class="text-h3 font-semibold text-slate-900">Juara Kategori Spesial</h3>
+          <p class="text-body text-slate-600">
+            Apresiasi untuk karya dengan keunggulan uniknya masing-masing dan raih plakat, dan
+            sertifikat juara kategori :
+          </p>
+        </div>
+        <div class="flex w-full flex-col gap-3">
+          {kategoriSpesial.map((k) => (
+            <div class="flex w-full items-center gap-4 rounded-xl bg-[#F0F6FF] px-4 py-3">
+              <div class="flex min-w-0 flex-1 flex-col items-start gap-2">
+                <p class="text-sm font-semibold text-slate-900">{k.judul}</p>
+                <p class="text-body-sm tracking-[0.3px] text-slate-600">{k.deskripsi}</p>
+              </div>
+              <img src={k.img} alt={k.alt} width="176" height="176" loading="lazy" class="size-[88px] shrink-0 object-contain" />
+            </div>
+          ))}
+        </div>
+      </article>
+    </div>
+
+    <!-- Catatan penjurian -->
+    <div class="flex w-full items-center gap-4 rounded-2xl bg-[#F0F6FF] p-6">
+      <span class="block size-6 shrink-0" set:html={ikonInfo} />
+      <p class="text-body text-slate-600">
+        Catatan : Penjurian KEYSI 2027 dilakukan secara gabungan dari seluruh topik yang kamu pilih
+        (bukan per-topik). Jadi, kamu tetap bersaing dan berkesempatan menang bersama seluruh
+        peserta, apapun topik yang kamu angkat dalam esaimu!
+      </p>
+    </div>
+  </div>
+</section>
