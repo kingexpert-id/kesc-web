@@ -1,0 +1,210 @@
+---
+// Navbar — DS §6.7a + Handoff §1/§3/§8
+// Desktop ≥1200 (lg): menu + dropdown klik · Tablet 768–1199 (md): drawer parsial 380px · Mobile <768: drawer full-screen
+interface Props {
+  active?: string;
+}
+const { active = '' } = Astro.props;
+
+const linkBase =
+  'flex h-10 items-center rounded-full px-4 font-heading text-base font-semibold text-slate-900 transition-colors duration-150 hover:text-brand-500';
+
+const drawerLinkBase =
+  'flex items-center rounded-lg px-4 py-3 font-heading text-base font-semibold text-slate-900 transition-colors duration-150 hover:bg-slate-100';
+---
+
+<header class="fixed inset-x-0 top-5 z-40 px-4 lg:px-8">
+  <nav
+    class="mx-auto flex h-16 max-w-[1240px] items-center justify-between rounded-full border border-brand-200 bg-surface-card px-4 shadow-md lg:h-[72px] lg:px-8"
+  >
+    <!-- Brand (semua device) -->
+    <a href="/" class="flex shrink-0 items-center gap-2">
+      <img
+        src="/images/logo-kesc.png"
+        alt="Logo King Expert Science Competition"
+        width="48"
+        height="48"
+        class="h-12 w-12"
+      />
+      <span class="flex flex-col">
+        <span class="font-heading text-sm font-semibold leading-[21px] text-brand-700">King Expert</span>
+        <span class="font-sans text-xs leading-[17px] text-slate-600">Science Competition</span>
+      </span>
+    </a>
+
+    <!-- ═══ MENU DESKTOP (≥ 1200px) ═══ -->
+    <ul class="hidden items-center gap-8 lg:flex">
+      <li>
+        <a href="/" class:list={[linkBase, active === 'Beranda' && 'bg-brand-50']}>Beranda</a>
+      </li>
+      <li class="relative" id="nav-program-wrap">
+        <button id="nav-program-desktop" class:list={[linkBase, 'gap-2']} aria-expanded="false" aria-haspopup="true">
+          Program kami
+          <svg
+            id="nav-program-icon-desktop"
+            class="h-4 w-4 transition-transform duration-150"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+          ><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div
+          id="nav-program-desktop-panel"
+          class="invisible absolute left-0 top-full pt-2 opacity-0 transition-opacity duration-150"
+        >
+          <div class="w-52 rounded-xl border border-slate-200 bg-surface-card p-2 shadow-lg">
+            <a href="/kesc" class="block rounded-lg px-3 py-2 font-sans text-base leading-[26px] text-slate-900 transition-colors hover:bg-slate-100">KESC</a>
+            <a href="/keysi" class="block rounded-lg px-3 py-2 font-sans text-base leading-[26px] text-slate-900 transition-colors hover:bg-slate-100">KEYSI</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/jadwal" class:list={[linkBase, active === 'Jadwal' && 'bg-brand-50']}>Jadwal</a></li>
+      <li><a href="/pengumuman" class:list={[linkBase, active === 'Pengumuman' && 'bg-brand-50']}>Pengumuman</a></li>
+      <li><a href="/faq" class:list={[linkBase, active === 'FAQ' && 'bg-brand-50']}>FAQ</a></li>
+    </ul>
+
+    <div class="hidden lg:block">
+      <a
+        href="/daftar"
+        class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-500 px-6 font-heading text-base font-semibold leading-4 text-[#FAFAFA] transition-colors duration-150 hover:bg-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+      >Daftar Sekarang</a>
+    </div>
+
+    <!-- ═══ HAMBURGER (mobile + tablet, < 1200px) ═══ -->
+    <button
+      id="nav-open"
+      class="flex h-10 w-10 items-center justify-center text-slate-900 lg:hidden"
+      aria-label="Buka menu"
+      aria-controls="nav-drawer"
+    >
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ═══ DRAWER (mobile full-screen · tablet 380px parsial) -->
+<div id="nav-drawer" class="fixed inset-0 z-50 invisible lg:hidden" aria-hidden="true">
+  <div id="nav-backdrop" class="absolute inset-0 bg-slate-900/40 opacity-0 transition-opacity duration-[250ms]"></div>
+
+  <div
+    id="nav-panel"
+    class="absolute inset-y-0 left-0 flex w-full flex-col bg-surface-card shadow-lg transition-transform duration-[250ms] ease-standard -translate-x-full md:w-[380px]"
+  >
+    <!-- Header drawer -->
+    <div class="flex h-16 shrink-0 items-center justify-between px-4">
+      <a href="/" class="flex items-center gap-2">
+        <img
+          src="/images/logo-kesc.png"
+          alt="Logo King Expert Science Competition"
+          width="48"
+          height="48"
+          class="h-10 w-10"
+        />
+        <span class="flex flex-col">
+          <span class="font-heading text-sm font-semibold leading-[21px] text-brand-700">King Expert</span>
+          <span class="font-sans text-xs leading-[17px] text-slate-600">Science Competition</span>
+        </span>
+      </a>
+      <button id="nav-close" class="flex h-10 w-10 items-center justify-center text-slate-900" aria-label="Tutup menu">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Menu drawer -->
+    <nav class="flex flex-col gap-1 overflow-y-auto p-4">
+      <a href="/" class:list={[drawerLinkBase, active === 'Beranda' && 'bg-brand-50']}>Beranda</a>
+
+      <button
+        id="nav-program"
+        class="flex items-center justify-between rounded-lg px-4 py-3 font-heading text-base font-semibold text-slate-900 transition-colors duration-150 hover:bg-slate-100"
+        aria-expanded="false"
+      >
+        Program kami
+        <svg
+          id="nav-program-icon"
+          class="h-4 w-4 transition-transform duration-[250ms]"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+        ><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div id="nav-program-panel" class="hidden px-4 pt-1">
+        <a href="/kesc" class="mb-2 block rounded-lg bg-slate-100 px-4 py-2.5 font-sans text-base leading-[26px] text-slate-900 transition-colors hover:bg-slate-200">KESC</a>
+        <a href="/keysi" class="block rounded-lg bg-slate-100 px-4 py-2.5 font-sans text-base leading-[26px] text-slate-900 transition-colors hover:bg-slate-200">KEYSI</a>
+      </div>
+
+      <a href="/jadwal" class:list={[drawerLinkBase, active === 'Jadwal' && 'bg-brand-50']}>Jadwal</a>
+      <a href="/pengumuman" class:list={[drawerLinkBase, active === 'Pengumuman' && 'bg-brand-50']}>Pengumuman</a>
+      <a href="/faq" class:list={[drawerLinkBase, active === 'FAQ' && 'bg-brand-50']}>FAQ</a>
+    </nav>
+
+    <!-- CTA drawer -->
+    <div class="shrink-0 px-4 pb-4">
+      <div class="mb-4 border-t border-slate-200"></div>
+      <a
+        href="/daftar"
+        class="flex h-12 w-full items-center justify-center rounded-full bg-brand-500 font-heading text-base font-semibold leading-4 text-[#FAFAFA] transition-colors duration-150 hover:bg-brand-600"
+      >Daftar Sekarang</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Drawer (mobile + tablet) ──
+  const drawer = document.getElementById('nav-drawer');
+  const panel = document.getElementById('nav-panel');
+  const backdrop = document.getElementById('nav-backdrop');
+  const openBtn = document.getElementById('nav-open');
+  const closeBtn = document.getElementById('nav-close');
+
+  const setDrawer = (open: boolean) => {
+    drawer?.classList.toggle('invisible', !open);
+    drawer?.setAttribute('aria-hidden', String(!open));
+    backdrop?.classList.toggle('opacity-0', !open);
+    panel?.classList.toggle('-translate-x-full', !open);
+    document.body.classList.toggle('overflow-hidden', open); // scroll lock (Handoff §8)
+  };
+
+  openBtn?.addEventListener('click', () => setDrawer(true));
+  closeBtn?.addEventListener('click', () => setDrawer(false));
+  backdrop?.addEventListener('click', () => setDrawer(false));
+
+  // ── Accordion "Program kami" di drawer ──
+  const programBtn = document.getElementById('nav-program');
+  const programPanel = document.getElementById('nav-program-panel');
+  const programIcon = document.getElementById('nav-program-icon');
+
+  programBtn?.addEventListener('click', () => {
+    const expanded = programBtn.getAttribute('aria-expanded') === 'true';
+    programBtn.setAttribute('aria-expanded', String(!expanded));
+    programPanel?.classList.toggle('hidden', expanded);
+    programIcon?.classList.toggle('rotate-180', !expanded);
+  });
+
+  // ── Dropdown desktop: KLIK buka, klik luar tutup (Handoff §3) ──
+  const programWrap = document.getElementById('nav-program-wrap');
+  const programDesktopBtn = document.getElementById('nav-program-desktop');
+  const programDesktopPanel = document.getElementById('nav-program-desktop-panel');
+  const programDesktopIcon = document.getElementById('nav-program-icon-desktop');
+
+  const setDropdown = (open: boolean) => {
+    programDesktopBtn?.setAttribute('aria-expanded', String(open));
+    programDesktopPanel?.classList.toggle('invisible', !open);
+    programDesktopPanel?.classList.toggle('opacity-0', !open);
+    programDesktopIcon?.classList.toggle('rotate-180', open);
+  };
+
+  programDesktopBtn?.addEventListener('click', () => {
+    setDropdown(programDesktopBtn.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (programDesktopBtn?.getAttribute('aria-expanded') !== 'true') return;
+    if (programWrap && !programWrap.contains(e.target as Node)) setDropdown(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      setDropdown(false);
+      setDrawer(false);
+    }
+  });
+</script>
