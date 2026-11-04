@@ -1,0 +1,45 @@
+---
+// Section — Program Kami 
+import ProgramCard from './ProgramCard.astro';
+
+const kartu = [
+  {
+    kategori: 'SCIENCE COMPETITION',
+    nama: 'KESC',
+    overline: 'KOMPETISI SAINS · CBT',
+    judul: 'King Expert Science Competition (KESC)',
+    deskripsi: 'Uji kemampuan akademis melalui kompetisi sains berbasis CBT. Tantangan terbaik untuk persiapan OSN/KSM!',
+    chips: ['SD/MI', 'SMP/MTs', 'SMA/SMK/MA'],
+    ctaLabel: 'Daftar KESC 2027',
+    linkLabel: 'Lihat Mapel & Panduan KESC',
+    gambar: '/images/kesc-artwork.png',
+    alt: 'Ilustrasi program KESC',
+  },
+  {
+    kategori: 'SCIENCE IDEATION',
+    nama: 'KEYSI',
+    overline: 'GAGASAN ILMIAH · ESAI',
+    judul: 'King Expert Young Science Ideation (KEYSI)',
+    deskripsi: 'Punya ide brilian? Tuangkan gagasan ilmiah kreatif dan inovatif dalam bentuk Esai dan buktikan kamu bagian dari GenerAction of Science and Technology!',
+    chips: ['SMP/MTs', 'SMA/SMK/MA', 'Mahasiswa'],
+    ctaLabel: 'Daftar KEYSI 2027',
+    linkLabel: 'Lihat Mapel & Panduan KEYSI',
+    gambar: '/images/keysi-artwork.png',
+    alt: 'Ilustrasi program KEYSI',
+  },
+];
+---
+
+<section id="program" class="bg-surface-page">
+  <div class="mx-auto flex max-w-[1030px] flex-col gap-12 px-6 py-16 md:px-8 lg:pt-[100px] lg:pb-16">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <h2 class="font-heading text-[32px] font-semibold leading-[38px] text-slate-900">PROGRAM KAMI</h2>
+      <p class="font-heading text-2xl font-semibold leading-[31px] text-slate-600">
+        Saatnya raih medali, tingkatkan prestasimu hingga membanggakan sekolah dan kampus hingga orang tuamu di bidang sains dan inovasi!
+      </p>
+    </div>
+    <div class="mx-auto grid w-full max-w-[640px] gap-6 lg:max-w-none lg:grid-cols-2">
+      {kartu.map((k) => <ProgramCard {...k} />)}
+    </div>
+  </div>
+</section>
