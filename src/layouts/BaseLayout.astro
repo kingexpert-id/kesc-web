@@ -1,0 +1,33 @@
+---
+// BaseLayout — shell semua halaman: html, head, fonts, global.css
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'KESC & KEYSI 2027 — King Expert Science Competition',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Fonts: Poppins 600/700 + Noto Sans 400/500 — sesuai DS 2.7.5 (tanpa Poppins 500) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-surface-page font-sans text-slate-900 antialiased">
+    <slot />
+  </body>
+</html>
