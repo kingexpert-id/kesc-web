@@ -1,0 +1,19 @@
+---
+// Badge — DS 6.3: px-3 py-1, radius/full, teks body-sm 14/21 (Noto Sans Medium)
+interface Props {
+  variant?: 'success' | 'warning' | 'error' | 'verified' | 'medal';
+}
+const { variant = 'success' } = Astro.props;
+
+const variantClass = {
+  success: 'bg-success-50 text-success-700',   // "Pendaftaran Dibuka"
+  warning: 'bg-warning-50 text-warning-700',   // "Segera Ditutup"
+  error: 'bg-error-50 text-error-700',         // "Pendaftaran Ditutup"
+  verified: 'bg-teal-500 text-white',          // Organizer terverifikasi
+  medal: 'bg-yellow-500 text-slate-900',       // Medali/juara
+}[variant];
+---
+
+<span class:list={['inline-flex items-center rounded-full px-3 py-1 text-sm leading-[21px] font-sans font-medium', variantClass]}>
+  <slot />
+</span>
