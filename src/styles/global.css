@@ -1,0 +1,44 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  /* Breakpoints — WAJIB override (7.1). sm/md default v4 sudah tepat (640/768) — cukup lg & xl */
+  --breakpoint-lg: 75rem;   /* 1200px — desktop mulai di sini */
+  --breakpoint-xl: 90rem;   /* 1440px */
+
+  /* Fonts (2.4) — Google Fonts di-load di head, token di sini */
+  --font-sans: "Noto Sans", sans-serif;     /* body */
+  --font-heading: "Poppins", sans-serif;    /* heading & button */
+
+  /* Motion (7.2) */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows (3.5) — override default v4 */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.10);
+  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.10);
+  --shadow-lg: 0 10px 24px rgba(15, 23, 42, 0.14);
+
+  /* Colors (3.2) — class hasil: bg-brand-500, text-slate-900, dst. */
+  --color-brand-50: #F0F6FF;   --color-brand-100: #D7E8FE;   --color-brand-200: #AACEFD;
+  --color-brand-300: #70ADFF;  --color-brand-400: #3D90FF;   --color-brand-500: #004AAD;
+  --color-brand-600: #003985;  --color-brand-700: #032E68;   --color-brand-800: #04244E;
+  --color-brand-900: #041934;
+  --color-teal-50: #F2F7F7;    --color-teal-100: #E3F2F1;    --color-teal-300: #5CD6D3;
+  --color-teal-500: #016F6C;   --color-teal-600: #015654;    --color-teal-700: #014240;
+  --color-orange-50: #FDF3EA;  --color-orange-500: #F38D4A;  --color-orange-600: #D47B42;
+  --color-yellow-50: #FEF6DE;  --color-yellow-500: #F5B903;
+  --color-blue2-100: #CCCDFF;  --color-blue2-300: #6668FF;   --color-blue2-500: #0000FF;
+  --color-surface-page: #F5F5F5;   --color-surface-card: #FAFAFA;
+  --color-success-50: #F0FDF4; --color-success-500: #16A34A; --color-success-700: #15803D;
+  --color-warning-50: #FFFBEB; --color-warning-500: #D97706; --color-warning-700: #B45309;
+  --color-error-50: #FEF2F2;   --color-error-500: #DC2626;   --color-error-700: #B91C1C;
+
+  /* Supplement — token campaign/WhatsApp/KEYSI dari frame hi-fi */
+  --color-campaign-navy: #1E2B65;          --color-campaign-indigo: #5053A2;
+  --color-campaign-indigo-deep: #373C86;   --color-campaign-lavender: #736CB0;
+  --color-campaign-sky: #859AD4;           --color-campaign-cream: #EAE2B8;
+  --color-campaign-cyan: #BDEFFA;          --color-campaign-surface-blue: #F0F6FF;
+  --color-campaign-surface-cyan: #E7F8FC;  --color-campaign-surface-lavender: #EEEAFE;
+  --color-wa-green: #25D366;  --color-wa-hover: #1FBE5B;  --color-wa-pressed: #1AAE50;
+  --color-keysi-flag: #514790;
+}
