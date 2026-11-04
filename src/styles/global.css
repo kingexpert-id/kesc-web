@@ -6,9 +6,15 @@
   --breakpoint-lg: 75rem;   /* 1200px — desktop mulai di sini */
   --breakpoint-xl: 90rem;   /* 1440px */
 
-  /* Fonts (2.4) — Google Fonts di-load di head, token di sini */
+  /* Fonts (2.4) — Google Fonts di-load di head*/
   --font-sans: "Noto Sans", sans-serif;     /* body */
   --font-heading: "Poppins", sans-serif;    /* heading & button */
+
+  /* Typescale responsif — DS 2.2/2.3 (Mobile default; Tablet & Desktop via media query di bawah) */
+  --text-display: 2rem;            --text-display--line-height: 2.375rem;   --text-display--letter-spacing: -1%;
+  --text-h1: 1.75rem;              --text-h1--line-height: 2.125rem;
+  --text-h2: 1.375rem;             --text-h2--line-height: 1.75rem;
+  --text-h3: 1.125rem;             --text-h3--line-height: 1.5rem;
 
   /* Motion (7.2) */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,4 +47,24 @@
   --color-campaign-surface-cyan: #E7F8FC;  --color-campaign-surface-lavender: #EEEAFE;
   --color-wa-green: #25D366;  --color-wa-hover: #1FBE5B;  --color-wa-pressed: #1AAE50;
   --color-keysi-flag: #514790;
+}
+
+/* Mode Tablet — DS 2.2 (768–1199) */
+@media (min-width: 48rem) {
+  :root {
+    --text-display: 3rem;        --text-display--line-height: 3.3125rem;  --text-display--letter-spacing: -1%;
+    --text-h1: 2.25rem;          --text-h1--line-height: 2.5625rem;
+    --text-h2: 1.75rem;          --text-h2--line-height: 2.125rem;
+    --text-h3: 1.375rem;         --text-h3--line-height: 1.8125rem;
+  }
+}
+
+/* Mode Desktop — DS 2.2 (≥ 1200) */
+@media (min-width: 75rem) {
+  :root {
+    --text-display: 3.75rem;     --text-display--line-height: 3.9375rem;  --text-display--letter-spacing: -1%;
+    --text-h1: 2.75rem;          --text-h1--line-height: 3.1875rem;
+    --text-h2: 2rem;             --text-h2--line-height: 2.375rem;
+    --text-h3: 1.5rem;           --text-h3--line-height: 1.9375rem;
+  }
 }
