@@ -1,0 +1,36 @@
+---
+import CardJenjang from './CardJenjang.astro';
+
+const jenjang = [
+  {
+    name: 'SD/MI',
+    avatar: '/images/avatar-jenjang-sd.png',
+    avatarAlt: 'Ilustrasi siswa SD melambai',
+    subjects: ['Matematika', 'IPA (Ilmu Pengetahuan Alam)'],
+  },
+  {
+    name: 'SMP/MTs',
+    avatar: '/images/avatar-jenjang-smp.png',
+    avatarAlt: 'Ilustrasi siswi SMP',
+    subjects: ['Matematika', 'IPA (Ilmu Pengetahuan Alam)', 'IPS (Ilmu Pengetahuan Sosial)'],
+  },
+  {
+    name: 'SMA/SMK/MA',
+    avatar: '/images/avatar-jenjang-sma.png',
+    avatarAlt: 'Ilustrasi siswa peraih medali',
+    subjects: ['Matematika', 'Fisika', 'Kimia', 'Biologi', 'Informatika', 'Ekonomi', 'Geografi'],
+    className: 'md:col-span-2 lg:col-span-1',
+  },
+];
+---
+
+<section class="bg-[#F5F5F5] px-6 py-12 md:px-14 lg:px-[72px] min-[1440px]:px-[100px] lg:py-16">
+  <div class="mx-auto flex max-w-[1240px] flex-col items-center gap-8 lg:gap-12">
+    <h2 class="max-w-[1029px] text-center text-h2 font-semibold text-slate-900">
+      Jenjang dan Cabang di Kompetisi Sains KESC
+    </h2>
+    <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {jenjang.map((j) => <CardJenjang {...j} />)}
+    </div>
+  </div>
+</section>

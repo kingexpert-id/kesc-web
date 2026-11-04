@@ -1,0 +1,53 @@
+---
+interface Props {
+  name: string;
+  avatar: string;
+  avatarAlt?: string;
+  subjects: string[];
+  class?: string;
+}
+const { name, avatar, avatarAlt = '', subjects, class: className } = Astro.props;
+const jumlahCabang = subjects.length;
+---
+
+<article
+  class:list={[
+    'w-full min-w-0 overflow-clip rounded-2xl border border-slate-200 bg-[#FAFAFA]',
+    className,
+  ]}
+>
+  <!-- Header gradient + avatar -->
+  <div
+    class="relative overflow-clip bg-[linear-gradient(165.2deg,#1E2B65_0%,#373C86_55%,#5053A2_100%)] px-6 py-6 lg:py-4"
+  >
+    <div>
+      <h3 class="text-h3 font-semibold text-[#FAFAFA]">{name}</h3>
+      <p class="text-body-sm tracking-[0.3px] text-[#FAFAFA]/90">Sederajat</p>
+    </div>
+    <img
+      src={avatar}
+      alt={avatarAlt}
+      width="71"
+      height="71"
+      loading="lazy"
+      class="absolute top-1/2 right-6 h-[71px] w-[71px] -translate-y-1/2"
+    />
+  </div>
+
+  <!-- Isi -->
+  <div class="flex flex-col gap-4 p-6">
+    <div class="flex items-baseline justify-between gap-2 text-slate-600">
+      <p class="text-body">Mata pelajaran</p>
+      <p class="text-body-sm">{jumlahCabang} cabang</p>
+    </div>
+    <ul class="flex flex-wrap gap-2">
+      {
+        subjects.map((mapel) => (
+          <li class="rounded-lg border border-brand-100 bg-brand-50 px-3 py-1 text-sm tracking-[0.3px] text-brand-700">
+            {mapel}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>
