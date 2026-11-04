@@ -1,9 +1,24 @@
 ---
 import '../styles/global.css';
+import Button from '../components/Button.astro';
 ---
 <html lang="id">
-  <body>
-    <h1 class="text-brand-500">Uji Tailwind v4</h1>
-    <p class="bg-campaign-navy text-white p-25">Uji token supplement</p>
+  <body class="bg-surface-page p-8">
+    <div class="flex items-center gap-4">
+      <Button variant="primary">Daftar Sekarang</Button>
+      <Button variant="secondary">Lihat Detail</Button>
+      <Button variant="outline">Batal</Button>
+      <Button variant="text">Lihat semua</Button>
+      <Button variant="primary" disabled>Disabled</Button>
+    </div>
+    <div class="mt-6 flex items-end gap-4">
+      <Button size="large" variant="primary">Large 56</Button>
+      <Button variant="primary">Default 48</Button>
+      <Button size="small" variant="primary">Small 40</Button>
+      <Button size="xsmall" variant="primary">XSmall 32</Button>
+    </div>
+    <div class="mt-6">
+      <Button href="#" variant="primary">Sebagai link</Button>
+    </div>
   </body>
 </html>
