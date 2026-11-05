@@ -1,0 +1,64 @@
+---
+import Button from './Button.astro';
+
+const tautanDaftar = 'https://forms.fillout.com/t/9w7zjLbFLAus'; // TODO: konfirmasi link daftar KESC
+const tautanPanduan = 'https://bit.ly/PanduanKESC2027';
+
+const wave = `<svg width="100%" height="100%" viewBox="0 0 1440 56.7745" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 24.3745C240 -11.6255 360 53.1745 720 24.3745C1080 -4.42546 1200 -11.6255 1440 24.3745V56.7745H0V24.3745Z" fill="#F5F5F5"/></svg>`;
+const panah = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.33333 8H12.6667" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path d="M8 3.33333L12.6667 8L8 12.6667" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>`;
+---
+
+<section
+  class="relative overflow-clip px-6 pt-28 pb-16 md:px-14 lg:px-[72px] lg:pt-[100px] lg:pb-[100px] min-[1440px]:px-[100px]"
+  style="background-image: linear-gradient(151.68deg, #1E2B65 0%, #373C86 76.06%, #5053A2 100%);"
+>
+  <div class="flex w-full flex-col items-center gap-8 lg:flex-row lg:gap-[30px]">
+    <!-- Teks -->
+    <div class="flex w-full flex-col items-start gap-3 lg:flex-[605_1_0%]">
+      <div class="w-full">
+        <h1 class="text-h1 font-bold text-[#FAFAFA]">
+          King Expert Science Competition (KESC) 2027
+        </h1>
+      </div>
+      <p class="text-h3 font-semibold text-[#FAFAFA]">
+        Kompetisi ujian sains nasional secara daring (online) untuk siswa SD, SMP, dan SMA di
+        seluruh Indonesia.
+      </p>
+      <p class="text-body text-[#FAFAFA]">
+        King Expert Science Competition (KESC) adalah kompetisi sains nasional tahunan yang
+        diselenggarakan oleh King Expert dengan sistem daring (online), sebagai wadah bagi siswa
+        SD, SMP, hingga SMA/Sederajat untuk mengembangkan talenta di bidang sains.
+      </p>
+      <div class="mt-1 flex w-full flex-col items-start gap-2 lg:mt-0 lg:w-auto lg:flex-row lg:items-center lg:gap-4">
+        <Button variant="terang" size="large" href={tautanDaftar} class="w-full lg:w-auto">
+          Daftar Sekarang
+        </Button>
+        <a
+          href={tautanPanduan}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 py-3 text-base font-semibold text-[#FAFAFA]"
+        >
+          Download Panduan KESC 2027
+          <span class="size-4" set:html={panah} />
+        </a>
+      </div>
+    </div>
+    <!-- Ilustrasi -->
+    <div class="w-full lg:w-auto lg:min-w-0 lg:flex-[637_1_0%]">
+      <img
+        src="/images/hero-kesc.png"
+        alt="Ilustrasi siswa berkompetisi sains"
+        width="1233"
+        height="694"
+        class="mx-auto h-auto w-full max-w-[637px]"
+      />
+    </div>
+  </div>
+  <!-- Wave bawah -->
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden h-8 lg:h-[72px]"
+    aria-hidden="true"
+    set:html={wave}
+  ></div>
+</section>

@@ -1,0 +1,80 @@
+---
+const tautanDaftar = 'https://forms.fillout.com/t/9w7zjLbFLAus'; // TODO: konfirmasi link KESC
+const tautanPanduan = 'https://bit.ly/PanduanKESC2027';
+
+const wave = `<svg width="100%" height="100%" viewBox="0 0 1440 56.7745" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 24.3745C240 -11.6255 360 53.1745 720 24.3745C1080 -4.42546 1200 -11.6255 1440 24.3745V56.7745H0V24.3745Z" fill="#F5F5F5"/></svg>`;
+const ikonSertifikat = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#004AAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 16.191 21l-4.19-2.106L7.81 21l.713-8.11"/></svg>`;
+const ikonKurasi = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#004AAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>`;
+const ikonCentang = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4648A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>`;
+---
+
+<section
+  class="relative overflow-clip px-6 py-24 md:px-14 lg:py-[100px] min-[1440px]:px-[100px]"
+  style="background-image: linear-gradient(148.8deg, #1E2B65 0%, #373C86 55%, #5053A2 100%);"
+>
+  <!-- Wave atas & bawah -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-8 rotate-180 overflow-hidden lg:h-[60px]" aria-hidden="true" set:html={wave}></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-8 overflow-hidden lg:h-[60px]" aria-hidden="true" set:html={wave}></div>
+
+  <div class="mx-auto flex max-w-[1030px] flex-col gap-8">
+    <!-- Header -->
+    <div class="flex flex-col items-center gap-3 text-center">
+      <p class="text-sm tracking-[0.4px] text-[#FAFAFA]/80">MANFAAT & PENGALAMAN</p>
+      <h2 class="text-[34px] font-bold leading-[43px] text-[#FAFAFA]">
+        Banyak Keuntungan dengan Mendaftar di KESC
+      </h2>
+    </div>
+
+    <!-- 01 Medali -->
+    <div class="flex flex-col items-start gap-6 rounded-2xl bg-white/10 p-6 md:flex-row md:items-center">
+      <img
+        src="/images/keuntungan-medali-plakat.png"
+        alt="Ilustrasi medali KESC"
+        width="400"
+        height="400"
+        loading="lazy"
+        class="h-[200px] w-[200px] shrink-0 rounded-xl object-cover"
+      />
+      <div class="min-w-0 flex-1">
+        <span class="inline-flex rounded-lg bg-[#EEEAFE] px-3 py-2 text-sm font-semibold text-[#5053A2]">KESC 2027</span>
+        <h3 class="mt-3 text-h3 font-semibold text-[#FAFAFA]">Raih Medali Kebanggaan!</h3>
+        <p class="mt-2 max-w-[580px] text-body text-[#FAFAFA]/80">
+          Terdapat sekitar 36 Medali terdiri dari Emas, Perak dan Perunggu di berbagai kategori
+          KESC.
+        </p>
+      </div>
+      <div class="shrink-0 md:text-right">
+        <p class="text-sm text-[#FAFAFA]/80">Sekitar</p>
+        <p class="text-[56px] font-bold leading-[70px] text-[#FAFAFA]">36</p>
+        <p class="text-base font-semibold text-[#FAFAFA]">Medali</p>
+      </div>
+    </div>
+
+    <!-- 02 & 03 -->
+    <div class="grid gap-[30px] md:grid-cols-[345fr_655fr]">
+      <div class="flex flex-col gap-4 rounded-xl border border-[#E4E4EF] bg-[#EEEAFE] p-6">
+        <span class="flex size-12 items-center justify-center rounded-lg bg-white" set:html={ikonSertifikat} />
+        <h3 class="text-h3 font-semibold text-[#0F172A]">E-Sertifikat</h3>
+        <p class="text-body text-[#475569]">
+          Dapatkan e-sertifikat untuk semua peserta yang berpartisipasi hingga juara.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4 rounded-xl border border-[#E4E4EF] bg-[#EEEAFE] p-6">
+        <div class="flex items-center gap-4">
+          <span class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-white" set:html={ikonKurasi} />
+          <h3 class="text-h3 font-semibold text-[#0F172A]">Kurasi</h3>
+        </div>
+        <p class="text-body text-[#475569]">
+          King Expert selalu berupaya memperbarui status kurasi di setiap tahun agar sertifikat
+          juara (Nasional & Regional) yang lolos verifikasi dapat diajukan oleh sekolah ke Sistem
+          Informasi Manajemen Talenta (SIMT) sebagai portofolio valid untuk pendaftaran Seleksi
+          Nasional Berdasarkan Prestasi (SNBP) dan Penerimaan Peserta Didik Baru (PPDB).
+        </p>
+        <div class="mt-auto flex items-start gap-2 pt-1">
+          <span class="mt-0.5 shrink-0" set:html={ikonCentang} />
+          <p class="text-sm text-[#4648A0]">Pengajuan mengikuti verifikasi sertifikat</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

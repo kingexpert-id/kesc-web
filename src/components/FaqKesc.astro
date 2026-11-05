@@ -1,0 +1,84 @@
+---
+const chevron = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>`;
+
+const faq = [
+  {
+    t: 'Apa saja persyaratan yang dibutuhkan saat mendaftar KESC 2027?',
+    list: [
+      'Pas foto terbaru (close-up, wajah terlihat jelas), boleh berpakaian seragam atau bebas rapi.',
+      'Kartu Pelajar atau surat keterangan dari sekolah yang mencantumkan NISN (salah satu saja sudah cukup).',
+      'Bukti transfer pembayaran pendaftaran.',
+      'Alamat email aktif & nomor WhatsApp (untuk penyampaian informasi akun peserta lebih lanjut).',
+    ],
+  },
+  {
+    t: 'Apakah KESC 2027 terbuka untuk umum? Siapa saja yang boleh ikut?',
+    a: 'Ya, King Expert Science Competition (KESC) 2027 terbuka untuk umum dan dapat diikuti siswa mulai dari jenjang pendidikan SD, SMP dan SMA/Sederajat di seluruh Indonesia.',
+  },
+  {
+    t: 'Apakah KESC 2027 bisa diikuti secara individu atau tim?',
+    a: 'KESC merupakan kompetisi sains yang diikuti secara individu (mandiri), bukan tim. Kalau kamu tertarik berkompetisi secara tim, kamu bisa coba King Expert Young Science Ideation (KEYSI) yang membuka pendaftaran individu maupun tim. Perlombaan KESC merupakan kompetisi sains untuk individu bukan tim.',
+  },
+  {
+    t: 'Apakah sekolah bisa mendaftarkan siswanya secara kolektif untuk KESC 2027?',
+    a: 'Bisa. Pihak sekolah dapat mendaftarkan siswanya secara kolektif melalui pendaftaran resmi di website KESC.',
+  },
+  {
+    t: 'Apakah 1 peserta bisa mengikuti lebih dari 1 bidang mata pelajaran di KESC?',
+    a: 'Disarankan setiap peserta dapat mengikuti 1 bidang mata pelajaran di KESC, karena setiap jadwal ujian tiap bidang berbeda-beda.',
+  },
+  {
+    t: 'Berapa banyak perangkat yang dibutuhkan untuk mengikuti Ujian KESC?',
+    a: 'Bagi para peserta diperlukan 2 (dua) perangkat untuk ujian :\n1 (satu) perangkat untuk ujian via website, dan\n1 (satu) perangkat ujian digunakan untuk pengawasan (proctoring) via Zoom selama ujian berlangsung.',
+  },
+  {
+    t: 'Bagaimana cara menata posisi perangkat & kamera pengawasan yang benar?',
+    a: 'Perangkat utama diletakkan tegak lurus di depanmu, sementara perangkat pengawasan diletakkan di samping atau belakangmu dengan jarak sekitar 1-1,5 meter. Pastikan sudut kamera mencakup wajah, tangan, layar perangkat utama, dan area meja kerja. Pastikan juga ruangan cukup terang (tidak backlight) dan perangkat pengawasan tetap terhubung ke Zoom sepanjang ujian.',
+  },
+  {
+    t: 'Apakah boleh mengikuti kompetisi KESC menggunakan HP atau smartphone?',
+    a: 'Boleh. Para peserta dapat menggunakan HP/Smartphone sebagai perangkat utama untuk mengerjakan soal, namun tetap siapkan 1 perangkat tambahan (HP atau laptop lain) untuk pengawasan melalui via Zoom selama ujian berlangsung.',
+  },
+  {
+    t: 'Apakah ada kisi-kisi atau contoh soal KESC 2027?',
+    a: 'Tim KESC tidak menyediakan kisi-kisi maupun contoh soal secara khusus. Namun, kamu bisa mempelajari Silabus materi lengkap yang tersedia di Panduan (Guidebook) KESC 2027.',
+  },
+  {
+    t: 'Berapa lama durasi ujian dan apakah ada batas waktu per soal?',
+    a: 'Durasi ujian berbeda-beda tergantung jenjang dan cabang lomba yang diikuti (info lengkap ada di Panduan KESC). Selama waktu ujian masih tersedia, kamu bebas menjawab soal sesuai urutan yang kamu inginkan dan tidak ada batas waktu per soal.',
+  },
+  {
+    t: 'Kapan hasil ujian/nilai KESC 2027 bisa diketahui?',
+    a: 'Nilai tidak langsung diketahui begitu ujian selesai. Hasil akan diumumkan sesuai dengan jadwal dan akan diinfokan melalui WhatsApp Grup Peserta KESC 2027 dan media sosial resmi instagram @kesc.id. Pastikan kamu follow akun instagramnya untuk update terbaru!',
+  },
+];
+---
+
+<section class="bg-[#F5F5F5] px-6 py-16 md:px-14 min-[1440px]:px-[100px]">
+  <h2 class="mx-auto max-w-[1000px] text-center text-h2 font-semibold text-[#0F172A]">
+    Frequently Asked Questions (FAQ) KESC 2027
+  </h2>
+  <div class="mx-auto mt-8 flex max-w-[817px] flex-col gap-4">
+    {
+      faq.map((f, i) => (
+        <details class="group rounded-xl border border-[#E2E8F0] bg-[#FAFAFA]" open={i === 0 ? true : undefined}>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-6 [&::-webkit-details-marker]:hidden">
+            <span class="text-base font-semibold text-[#0F172A]">{f.t}</span>
+            <span class="shrink-0 text-[#475569] transition-transform group-open:rotate-180" set:html={chevron} />
+          </summary>
+          <div class="px-6 pb-6 text-body text-[#475569]">
+            {f.list ? (
+              <ul class="list-disc space-y-1 pl-5">
+                {f.list.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p class="whitespace-pre-line">{f.a}</p>
+            )}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>
