@@ -1,0 +1,184 @@
+---
+const chevronInfo = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5053A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`;
+
+const ikonTipe = {
+  pendaftaran: '/images/jadwal-pendaftaran.png',
+  tenggat: '/images/jadwal-tenggat.png',
+  briefing: '/images/jadwal-briefing.png',
+  ujian: '/images/jadwal-ujian.png',
+  pengumuman: '/images/jadwal-pengumuman.png',
+  pengumpulan: '/images/jadwal-pengumpulan.png',
+  penjurian: '/images/jadwal-penjurian.png',
+  pemenang: '/images/jadwal-pemenang.png',
+};
+
+const badgeKelas = {
+  KESC: 'bg-[#F0F6FF] text-[#004AAD]',
+  KEYSI: 'bg-[#EEEAFE] text-[#5053A2]',
+  Bersama: 'bg-[#F1F5F9] text-[#475569]',
+};
+
+const bulan = [
+  {
+    nama: 'November 2026',
+    item: [
+      {
+        tanggal: '06 Nov',
+        tahun: '2026',
+        judul: 'Pembukaan Pendaftaran KESC & KEYSI',
+        program: 'Bersama',
+        tipe: 'pendaftaran',
+        desc: 'Pendaftaran dibuka mulai tanggal 6 November 2026. Yuk, Daftar Sekarang!',
+      },
+    ],
+  },
+  {
+    nama: 'Januari 2027',
+    item: [
+      { tanggal: '12 Jan', tahun: '2027', judul: 'Penutupan Pendaftaran KESC', program: 'KESC', tipe: 'tenggat', desc: 'Penutupan Pendaftaran KESC pada 12 Januari 2027.' },
+      { tanggal: '14 Jan', tahun: '2027', judul: 'Technical Meeting Regional Round KESC', program: 'KESC', tipe: 'briefing', desc: 'Dilaksanakan secara daring (online) melalui Zoom Meeting pada 14 Januari 2027.' },
+      { tanggal: '16 Jan', tahun: '2027', judul: 'Grand Opening & Babak Regional KESC', program: 'KESC', tipe: 'ujian', desc: 'Dilaksanakan pada 16 Januari 2027 secara daring (online) dengan pengawasan melalui Zoom dan dilaksanakan menggunakan CBT (Computer Based Test).' },
+      { tanggal: '18 Jan', tahun: '2027', judul: 'Pengumuman Babak Regional KESC', program: 'KESC', tipe: 'pengumuman', desc: 'Hasil regional diumumkan pada 18 Januari 2027 melalui media sosial resmi @kesc.id.' },
+      { tanggal: '18 Jan', tahun: '2027', judul: 'Penutupan Pendaftaran KEYSI', program: 'KEYSI', tipe: 'tenggat', desc: 'Penutupan Pendaftaran KEYSI pada tanggal 18 Januari 2027.' },
+      { tanggal: '20 Jan', tahun: '2027', judul: 'Batas Akhir Pengumpulan Karya KEYSI', program: 'KEYSI', tipe: 'pengumpulan', desc: 'Pengumpulan karya KEYSI pada 20 Januari 2027, berupa esai dan video pendukung. Video bersifat opsional.' },
+      { tanggal: '21 Jan', tahun: '2027', judul: 'Technical Meeting Babak Nasional KESC', program: 'KESC', tipe: 'briefing', desc: 'Dilaksanakan pada 21 Januari 2027 secara daring (online) via Zoom Meeting.' },
+      { tanggal: '21–23 Jan', tahun: '2027', judul: 'Penilaian & Penjurian KEYSI', program: 'KEYSI', tipe: 'penjurian', desc: 'Penilaian dan Penjurian KEYSI akan dilakukan pada 21–23 Januari 2027.' },
+      { tanggal: '23 Jan', tahun: '2027', judul: 'Babak Nasional KESC', program: 'KESC', tipe: 'ujian', desc: 'Dilaksanakan pada 23 Januari 2027 menggunakan sistem CBT (Computer Based Test).' },
+      { tanggal: '23–24 Jan', tahun: '2027', judul: 'Penilaian dan Penetapan Juri KESC', program: 'KESC', tipe: 'penjurian', desc: 'Proses penjurian dilakukan pada 23–24 Januari 2027 oleh tim juri untuk menentukan pemenang tiap cabang lomba.' },
+      { tanggal: '24 Jan', tahun: '2027', judul: 'Pengumuman Pemenang & Closing Ceremony KESC & KEYSI', program: 'Bersama', tipe: 'pemenang', desc: 'Dilaksanakan pada 24 Januari 2027 secara daring (online) via Zoom Meeting sebagai penutupan resmi KESC & KEYSI 2027.' },
+    ],
+  },
+];
+---
+
+<section class="bg-[#F5F5F5] px-6 py-16 md:px-14 lg:px-[100px] min-[1440px]:px-[100px]" data-linimasa>
+  <div class="mx-auto flex max-w-[1240px] flex-col gap-10">
+    <!-- Toolbar -->
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="flex flex-col gap-2">
+        <p class="text-sm font-semibold tracking-[1.5px] text-[#004AAD]">JADWAL KESC &amp; KEYSI</p>
+        <h2 class="text-[34px] font-bold leading-[43px] text-[#0F172A]">Linimasa Kompetisi</h2>
+        <p class="text-body text-[#475569]">Pilih program untuk melihat jadwal yang relevan.</p>
+      </div>
+      <div class="flex flex-col items-start gap-1 lg:items-end">
+        <p class="text-base font-semibold text-[#0F172A]">06 Nov 2026 — 24 Jan 2027</p>
+        <p class="text-sm tracking-[0.3px] text-[#475569]">12 kegiatan · KESC, KEYSI &amp; agenda bersama</p>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex w-full max-w-[306px] gap-1 rounded-[10px] border border-[#E2E8F0] bg-white p-1">
+      <button
+        type="button"
+        data-filter="semua"
+        class="min-h-[44px] flex-1 rounded-md bg-[#004AAD] px-2 py-3 text-sm font-semibold text-[#FAFAFA] transition"
+      >
+        Semua
+      </button>
+      <button
+        type="button"
+        data-filter="kesc"
+        class="min-h-[44px] flex-1 rounded-md px-2 py-3 text-sm font-semibold text-[#475569] transition"
+      >
+        KESC
+      </button>
+      <button
+        type="button"
+        data-filter="keysi"
+        class="min-h-[44px] flex-1 rounded-md px-2 py-3 text-sm font-semibold text-[#475569] transition"
+      >
+        KEYSI
+      </button>
+    </div>
+
+    <!-- Timeline -->
+    <div class="flex flex-col">
+      {
+        bulan.map((b) => (
+          <div data-bulan-jadwal>
+            <div class="mb-2 flex items-center gap-4">
+              <p class="text-[22px] font-semibold text-[#0F172A]">{b.nama}</p>
+              <div class="h-px min-w-0 flex-1 bg-[#E2E8F0]" />
+            </div>
+            {b.item.map((m, i) => (
+              <div
+                class="flex items-start gap-8 pb-10"
+                data-item-jadwal
+                data-program-jadwal={m.program.toLowerCase()}
+              >
+                <div class="w-[72px] shrink-0 pt-6 md:w-[112px]">
+                  <p class="text-lg font-semibold text-[#1E2B65]">{m.tanggal}</p>
+                  <p class="text-sm text-[#475569]">{m.tahun}</p>
+                </div>
+                <div class="relative w-16 shrink-0 md:w-24">
+                  <img
+                    src={ikonTipe[m.tipe]}
+                    alt=""
+                    width="192"
+                    height="192"
+                    loading="lazy"
+                    class="h-16 w-16 object-contain md:h-24 md:w-24"
+                  />
+                  {i < b.item.length - 1 && (
+                    <div
+                      class="absolute -bottom-10 left-1/2 top-16 w-0 -translate-x-1/2 border-l-2 border-dashed border-[#CBD5E1] md:top-24"
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+                <div class="min-w-0 flex-1 border-b border-[#E2E8F0] pb-6 pt-5">
+                  <div class="flex flex-wrap items-center gap-3">
+                    <p class="min-w-0 flex-1 text-lg font-semibold text-[#0F172A]">{m.judul}</p>
+                    <span class={`shrink-0 rounded-md px-2 py-1 text-sm font-semibold ${badgeKelas[m.program]}`}>
+                      {m.program}
+                    </span>
+                  </div>
+                  <p class="mt-2 text-body text-[#475569]">{m.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Catatan -->
+    <div class="flex items-start gap-4">
+      <span class="shrink-0" set:html={chevronInfo} />
+      <p class="text-sm tracking-[0.3px] text-[#475569]">
+        Jarak antarkegiatan disesuaikan dengan isi, bukan skala durasi tanggal. Kegiatan pada
+        tanggal yang sama tetap ditampilkan terpisah.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-linimasa]').forEach((root) => {
+    const tombol = root.querySelectorAll('[data-filter]');
+    const item = root.querySelectorAll('[data-item-jadwal]');
+    const grupBulan = root.querySelectorAll('[data-bulan-jadwal]');
+    const kelasAktif = ['bg-[#004AAD]', 'text-[#FAFAFA]'];
+    const kelasNonaktif = ['text-[#475569]'];
+
+    tombol.forEach((b) =>
+      b.addEventListener('click', () => {
+        const filter = b.getAttribute('data-filter');
+        tombol.forEach((x) => {
+          const aktif = x === b;
+          kelasAktif.forEach((c) => x.classList.toggle(c, aktif));
+          kelasNonaktif.forEach((c) => x.classList.toggle(c, !aktif));
+        });
+        item.forEach((it) => {
+          const program = it.getAttribute('data-program-jadwal');
+          const tampil = filter === 'semua' || program === filter || program === 'bersama';
+          it.classList.toggle('hidden', !tampil);
+        });
+        grupBulan.forEach((g) => {
+          const adaIsi = g.querySelector('[data-item-jadwal]:not(.hidden)');
+          g.classList.toggle('hidden', !adaIsi);
+        });
+      })
+    );
+  });
+</script>

@@ -1,0 +1,20 @@
+---
+const wave = `<svg width="100%" height="100%" viewBox="0 0 1440 56.7745" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 24.3745C240 -11.6255 360 53.1745 720 24.3745C1080 -4.42546 1200 -11.6255 1440 24.3745V56.7745H0V24.3745Z" fill="#F5F5F5"/></svg>`;
+---
+
+<section
+  class="relative overflow-clip px-6 pt-28 pb-16 md:px-14 lg:px-[100px] lg:pt-[100px] lg:pb-[100px] min-[1440px]:px-[100px]"
+  style="background-image: linear-gradient(162.61deg, #1E2B65 0%, #373C86 76.06%, #5053A2 100%);"
+>
+  <div class="flex w-full max-w-[605px] flex-col items-start gap-3">
+    <h1 class="text-h1 font-bold text-[#FAFAFA]">Jadwal KESC &amp; KEYSI 2027</h1>
+    <p class="text-h3 font-semibold text-[#FAFAFA]">
+      Ikuti setiap tahap kompetisi, dari pendaftaran hingga pengumuman pemenang.
+    </p>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 h-8 overflow-hidden lg:h-[72px]"
+    aria-hidden="true"
+    set:html={wave}
+  ></div>
+</section>

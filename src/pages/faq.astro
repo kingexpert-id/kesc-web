@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import HeroHalaman from '../components/HeroHalaman.astro';
+import BantuanJadwal from '../components/BantuanJadwal.astro';
+
+// Item FAQ — item pertama terbuka secara default (sesuai desain)
+const daftarFaq = [
+  {
+    pertanyaan: 'Apa perbedaan dari KESC dan KEYSI?',
+    jawaban: [
+      'KESC adalah kompetisi ujian sains nasional yang diikuti oleh siswa jenjang SD, SMP, SMA/sederajat secara individu maupun tim.',
+      'KEYSI adalah kompetisi esai gagasan ilmiah yang diikuti oleh pelajar jenjang SMP hingga mahasiswa secara tim.',
+    ],
+  },
+  {
+    pertanyaan: 'Kapan pendaftaran KESC & KEYSI 2027 dibuka?',
+    jawaban: [
+      'Pendaftaran dibuka pada periode berikut:',
+      '- KESC: 6 November 2026 – 12 Januari 2027',
+      '- KEYSI: 6 November 2026 – 18 Januari 2027 (pengumpulan karya hingga 20 Januari 2027)',
+      'Rincian lengkap tahapan dapat dilihat pada halaman [Jadwal](/jadwal).',
+    ],
+  },
+  {
+    pertanyaan: 'Apakah ikut lomba KESC dan KEYSI berbayar?',
+    jawaban: [
+      'Ya, terdapat biaya pendaftaran untuk setiap tim (maksimal 3 orang).',
+      '- KESC: Rp 95.000/tim selama periode Early Bird, dan Rp 100.000/tim pada periode Regular (hingga 12 Januari 2027).',
+      '- KEYSI: Rp 118.750/tim selama periode Early Bird, dan Rp 125.000/tim pada periode Regular (hingga 18 Januari 2027).',
+    ],
+  },
+  {
+    pertanyaan: 'Boleh ikut KESC dan KEYSI sekaligus?',
+    jawaban: [
+      'Boleh. KESC dan KEYSI adalah dua cabang kompetisi yang terpisah, jadi satu tim boleh mengikuti keduanya dengan mendaftar pada masing-masing cabang.',
+    ],
+  },
+  {
+    pertanyaan: 'Jika ada kendala, saya harus menghubungi siapa?',
+    jawaban: [
+      'Silakan hubungi Admin WhatsApp kami di [0851-8321-3414](https://wa.me/6285183213414) untuk bantuan lebih lanjut.',
+    ],
+  },
+];
+---
+
+<BaseLayout title="FAQ | KESC & KEYSI 2027">
+  <Navbar />
+  <HeroHalaman
+    judul="Frequently Asked Questions (FAQ)"
+    subjudul="Jawaban untuk pertanyaan seputar program, pendaftaran, dan biaya kompetisi."
+  />
+
+  <!-- Section FAQ Umum -->
+  <section class="bg-[#F5F5F5] px-6 py-16 md:px-[100px]">
+    <div class="mx-auto flex w-full max-w-[1240px] flex-col gap-8">
+      <h2
+        class="font-['Poppins',sans-serif] text-[24px] font-semibold leading-[1.29] text-[#0F172A] md:text-[32px] md:leading-[1.25]"
+      >
+        Seputar KESC & KEYSI 2027
+      </h2>
+
+      <div class="flex flex-col gap-4">
+        {
+          daftarFaq.map((item, i) => (
+            <details
+              class="group w-full rounded-2xl border border-[#E2E8F0] bg-[#FAFAFA] shadow-[0_1px_1.5px_rgba(15,23,42,0.1)]"
+              open={i === 0}
+            >
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-6">
+                <span class="font-['Poppins',sans-serif] text-lg font-semibold leading-[1.35] text-[#0F172A] md:text-[20px]">
+                  {item.pertanyaan}
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-6 shrink-0 text-[#0F172A] transition-transform duration-200 group-open:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </summary>
+              <div class="flex flex-col gap-3 border-t border-[#E2E8F0] px-6 py-5">
+                {item.jawaban.map((paragraf) => (
+                  <p
+                    class="whitespace-pre-line text-base leading-[1.63] text-[#475569]"
+                    set:html={paragraf}
+                  />
+                ))}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <BantuanJadwal />
+  <Footer />
+</BaseLayout>

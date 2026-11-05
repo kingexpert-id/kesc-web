@@ -1,0 +1,41 @@
+---
+// Hero sederhana untuk halaman Jadwal / Pengumuman / FAQ.
+// Props: judul (string), subjudul (string)
+const { judul, subjudul } = Astro.props;
+---
+
+<section
+  class="relative w-full overflow-hidden"
+  style="background-image: linear-gradient(162.61deg, #1E2B65 0%, #373C86 76.06%, #5053A2 100%);"
+>
+  <div class="mx-auto w-full max-w-[1440px] px-6 py-16 md:px-[100px] md:py-[100px]">
+    <div class="flex max-w-[605px] flex-col gap-3">
+      <h1
+        class="font-['Poppins',sans-serif] text-[32px] font-bold leading-[1.16] text-[#FAFAFA] md:text-[44px] md:leading-[51px]"
+      >
+        {judul}
+      </h1>
+      <p
+        class="font-['Poppins',sans-serif] text-[20px] font-semibold leading-[1.29] text-[#FAFAFA] md:text-[24px] md:leading-[31px]"
+      >
+        {subjudul}
+      </p>
+    </div>
+  </div>
+
+  <!-- Gelombang transisi ke section di bawahnya -->
+  <div class="absolute inset-x-0 bottom-0 h-[72px] overflow-hidden">
+    <svg
+      class="h-full w-full"
+      preserveAspectRatio="none"
+      viewBox="0 0 1440 56.77"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 24.37C240 -11.63 360 53.17 720 24.37C1080 -4.43 1200 -11.63 1440 24.37V56.77H0V24.37Z"
+        fill="#F5F5F5"></path>
+    </svg>
+  </div>
+</section>
