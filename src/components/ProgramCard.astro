@@ -9,10 +9,11 @@ interface Props {
   chips: string[];
   ctaLabel: string;
   linkLabel: string;
+  linkhref: string;
   gambar: string;
   alt: string;
 }
-const { kategori, nama, overline, judul, deskripsi, chips, ctaLabel, linkLabel, gambar, alt } = Astro.props;
+const { kategori, nama, overline, judul, deskripsi, chips, ctaLabel, linkLabel, linkhref, gambar, alt } = Astro.props;
 ---
 
 <article class="flex w-full flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-[#FAFAFA] transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-900/10">
@@ -43,7 +44,7 @@ const { kategori, nama, overline, judul, deskripsi, chips, ctaLabel, linkLabel, 
         {ctaLabel}
       </a>
       <div class="flex flex-wrap w-full items-center gap-3 lg:flex-nowrap">
-        <a href="#" class="group whitespace-nowrap flex h-11 flex-1 items-center gap-1.5 font-heading text-sm font-semibold leading-[21px] text-[#004AAD] transition-colors hover:text-brand-600">
+        <a href={linkhref} class="group whitespace-nowrap flex h-11 flex-1 items-center gap-1.5 font-heading text-sm font-semibold leading-[21px] text-[#004AAD] transition-colors hover:text-brand-600">
           {linkLabel}
           <svg class="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
         </a>
