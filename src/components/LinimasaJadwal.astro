@@ -102,33 +102,35 @@ const bulan = [
             </div>
             {b.item.map((m, i) => (
               <div
-                class="flex items-start gap-8 pb-10"
+                class="flex items-start gap-4 pb-10 md:gap-8"
                 data-item-jadwal
                 data-program-jadwal={m.program.toLowerCase()}
               >
-                <div class="w-[72px] shrink-0 pt-6 md:w-[112px]">
+                <div class="w-14 shrink-0 pt-6 md:w-[112px]">
                   <p class="text-lg font-semibold text-[#1E2B65]">{m.tanggal}</p>
                   <p class="text-sm text-[#475569]">{m.tahun}</p>
                 </div>
-                <div class="relative w-16 shrink-0 md:w-24">
+                <div class="relative w-12 shrink-0 md:w-24">
                   <img
                     src={ikonTipe[m.tipe]}
                     alt=""
                     width="192"
                     height="192"
                     loading="lazy"
-                    class="h-16 w-16 object-contain md:h-24 md:w-24"
+                    class="h-12 w-12 object-contain md:h-24 md:w-24"
                   />
                   {i < b.item.length - 1 && (
                     <div
-                      class="absolute -bottom-10 left-1/2 top-16 w-0 -translate-x-1/2 border-l-2 border-dashed border-[#CBD5E1] md:top-24"
+                      class="absolute -bottom-10 left-1/2 top-12 w-0 -translate-x-1/2 border-l-2 border-dashed border-[#CBD5E1] md:top-24"
                       aria-hidden="true"
                     />
                   )}
                 </div>
                 <div class="min-w-0 flex-1 border-b border-[#E2E8F0] pb-6 pt-5">
-                  <div class="flex flex-wrap items-center gap-3">
-                    <p class="min-w-0 flex-1 text-lg font-semibold text-[#0F172A]">{m.judul}</p>
+                  <div class="flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+                    <p class="text-base font-semibold leading-snug text-[#0F172A] sm:min-w-0 sm:flex-1 sm:text-lg">
+                      {m.judul}
+                    </p>
                     <span class={`shrink-0 rounded-md px-2 py-1 text-sm font-semibold ${badgeKelas[m.program]}`}>
                       {m.program}
                     </span>
