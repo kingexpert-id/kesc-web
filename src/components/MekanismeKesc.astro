@@ -120,25 +120,24 @@ const wilayah = [
     </div>
   </div>
 
-  <!-- Pricing -->
-  <div class="mt-8">
-    <PricingBox
-      eyebrow="PENDAFTARAN KESC 2027"
-      judul="Biaya Pendaftaran Kompetisi Sains KESC 2027"
-      subjudul="Dua periode harga — makin daftar awal, makin hemat"
-      catatan="Pendaftaran dibuka 6 November 2026 · ditutup 12 Januari 2027"
-      labelCta="Daftar KESC 2027"
-      tautanDaftar={tautanDaftar}
-      regular={{
-        harga: 'Rp 100.000',
-        periode: '16 Desember 2026 – 12 Januari 2027',
-        keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
-      }}
-      early={{
-        harga: 'Rp 95.000',
-        periode: '6 November – 15 Desember 2026',
-        keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
-      }}
-    />
-  </div>
+  
+<!-- Pricing -->
+<div class="mt-8">
+  <PricingBox
+    program="KESC"
+    tautanDaftar={tautanDaftar}
+    regular={{
+      harga: 'Rp 100.000',
+      periode: '16 Desember 2026 – 12 Januari 2027',
+      keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
+    }}
+    early={{
+      harga: 'Rp 95.000',
+      periode: '6 November – 15 Desember 2026',
+      keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
+    }}
+    catatan="Pendaftaran dibuka 6 November 2026 · ditutup 12 Januari 2027"
+  />
+</div>
+
 </section>

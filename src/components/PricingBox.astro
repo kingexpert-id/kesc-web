@@ -1,67 +1,177 @@
+
 ---
-interface Props {
-  eyebrow: string;
-  judul: string;
-  subjudul: string;
-  catatan: string;
-  labelCta: string;
-  tautanDaftar: string;
-  regular: { harga: string; periode: string; keterangan: string };
-  early: { harga: string; periode: string; keterangan: string };
+interface PriceTier {
+  harga: string;
+  periode: string;
+  keterangan: string;
 }
 
-const { eyebrow, judul, subjudul, catatan, labelCta, tautanDaftar, regular, early } = Astro.props;
+interface Props {
+  program: 'KESC' | 'KEYSI';
+  tautanDaftar: string;
+  regular: PriceTier;
+  early: PriceTier;
+  catatan?: string;
+}
+
+const {
+  program,
+  tautanDaftar,
+  regular,
+  early,
+  catatan,
+} = Astro.props;
+
+const isKeysi = program === 'KEYSI';
+
+const eyebrow = isKeysi
+  ? 'PENDAFTARAN KEYSI 2027'
+  : 'PENDAFTARAN KESC 2027';
+
+const judul = isKeysi
+  ? 'Biaya Pendaftaran Kompetisi KEYSI 2027'
+  : 'Biaya Pendaftaran Kompetisi Sains KESC 2027';
+
+const satuan = isKeysi
+  ? '/peserta atau tim'
+  : '/peserta';
+
+const labelCta = isKeysi
+  ? 'Daftar KEYSI 2027'
+  : 'Daftar KESC 2027';
 ---
 
-<div class="mx-auto w-full max-w-[1240px] rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.08)] md:p-8">
-  <div class="flex flex-col items-center gap-2 text-center">
-    <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">{eyebrow}</p>
-    <h2 class="text-h2 font-semibold text-[#0F172A]">{judul}</h2>
-    <p class="text-body text-[#475569]">{subjudul}</p>
-  </div>
-  <div class="mt-8 grid gap-6 md:grid-cols-2">
+<section class="mx-auto flex w-full max-w-[1240px] flex-col items-center gap-6 lg:gap-8">
+
+  <!-- Header -->
+  <header class="flex w-full flex-col items-center gap-2 text-center">
+
+    <p class="font-heading text-xs leading-[17px] font-semibold tracking-[1px] text-brand-500">
+      {eyebrow}
+    </p>
+
+    <h2 class="text-h2 font-heading font-semibold text-slate-900">
+      {judul}
+    </h2>
+
+    <p class="text-body text-slate-600">
+      Dua periode harga — makin daftar awal, makin hemat
+    </p>
+
+  </header>
+
+    <!-- Pricing Cards -->
+    <div class="mx-auto grid w-full max-w-[844px] grid-cols-1 gap-6 md:grid-cols-[280px_426px] md:gap-4 lg:grid-cols-[320px_500px] lg:gap-6">
+
     <!-- Regular -->
-    <div class="flex flex-col gap-3 rounded-2xl border border-[#E2E8F0] bg-[#FAFAFA] p-6">
-      <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#5053A2]">Regular</p>
-      <div class="flex items-end gap-2">
-        <p class="text-[40px] font-bold leading-none text-[#0F172A]">{regular.harga}</p>
-        <p class="pb-1 text-sm text-[#475569]">/peserta atau tim</p>
-      </div>
-      <p class="text-body font-semibold text-[#0F172A]">{regular.periode}</p>
-      <p class="text-sm text-[#475569]">{regular.keterangan}</p>
-      <a
-        href={tautanDaftar}
-        target="_blank"
-        rel="noopener"
-        class="mt-auto inline-flex h-12 items-center justify-center rounded-xl border border-[#004AAD] px-5 text-base font-semibold text-[#004AAD] transition hover:bg-[#004AAD]/5"
-      >
-        {labelCta}
-      </a>
-    </div>
-    <!-- Early Bird -->
-    <div
-      class="relative flex flex-col gap-3 overflow-hidden rounded-2xl p-6 text-[#FAFAFA]"
-      style="background-image: linear-gradient(to bottom, #004AAD, #003985);"
-    >
-      <span class="absolute right-4 top-4 rounded-full bg-[#F5B903] px-3 py-1 text-xs font-bold text-[#0F172A]">
-        PALING HEMAT
+    <article class="order-2 flex w-full flex-col items-start gap-2 rounded-2xl border border-slate-200 bg-[#FAFAFA] p-6 shadow-[0_1px_3px_rgba(15,23,42,0.10)] md:order-1 md:h-[378px] md:w-[280px] md:shrink-0 md:p-8 lg:w-[320px]">
+
+      <span class="rounded-full bg-slate-100 px-3 py-2 text-xs leading-[17px] font-semibold tracking-[1px] text-slate-700">
+        REGULAR
       </span>
-      <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#FAFAFA]/80">Early Bird</p>
-      <div class="flex items-end gap-2">
-        <p class="text-[40px] font-bold leading-none">{early.harga}</p>
-        <p class="pb-1 text-sm text-[#FAFAFA]/80">/peserta atau tim</p>
-      </div>
-      <p class="text-body font-semibold">{early.periode}</p>
-      <p class="text-sm text-[#FAFAFA]/80">{early.keterangan}</p>
+
+      <h3 class="text-h3 font-heading font-semibold text-slate-900">
+        Regular
+      </h3>
+
+      <p class="text-h1 font-heading font-bold text-slate-900">
+        {regular.harga}
+      </p>
+
+      <p class="text-xs leading-[17px] tracking-[0.3px] text-slate-600">
+        {satuan}
+      </p>
+
+      <p class="text-body-sm tracking-[0.3px] text-slate-600">
+        {regular.periode}
+      </p>
+
+      <p class="text-body-sm tracking-[0.3px] text-slate-600">
+        {regular.keterangan}
+      </p>
+
+      <div class="min-h-2 flex-1"></div>
+
       <a
         href={tautanDaftar}
         target="_blank"
-        rel="noopener"
-        class="mt-auto inline-flex h-12 items-center justify-center rounded-xl bg-[#FAFAFA] px-5 text-base font-semibold text-[#004AAD] transition hover:opacity-90"
+        rel="noopener noreferrer"
+        class="flex h-12 w-full items-center justify-center rounded-2xl border border-brand-500 px-6 text-base font-heading font-semibold text-brand-500 transition hover:bg-brand-50"
       >
         {labelCta}
       </a>
+
+    </article>
+
+    <!-- Early Bird -->
+    <article class="relative order-1 flex w-full flex-col items-start gap-2 rounded-2xl bg-gradient-to-b from-brand-500 to-brand-600 p-6 text-white shadow-[0_10px_24px_rgba(15,23,42,0.14)] md:order-2 md:h-[378px] md:w-[426px] md:shrink-0 md:p-8 lg:w-[500px]">
+
+    <div
+      class="absolute -top-4 left-1/2 z-[8] flex h-[29px] w-[128px] -translate-x-1/2 items-center justify-center rounded-full bg-[#F5B903] px-3 py-1"
+      >
+      <span class="font-sans text-[14px] leading-[21px] font-normal tracking-[0.3px] text-[#0F172A]">
+      Paling Hemat
+      </span>
     </div>
+
+      <span class="rounded-full bg-white/15 px-3 py-2 text-xs leading-[17px] font-semibold tracking-[1px] text-white">
+        HEMAT 5%
+      </span>
+
+      <h3 class="text-h3 font-heading font-semibold text-white">
+        Early Bird
+      </h3>
+
+      <p class="text-h1 font-heading font-bold text-white">
+        {early.harga}
+      </p>
+
+      <p class="text-xs leading-[17px] tracking-[0.3px] text-white">
+        {satuan}
+      </p>
+
+      <p class="text-body-sm tracking-[0.3px] text-white">
+        {early.periode}
+      </p>
+
+      <p class="text-body-sm tracking-[0.3px] text-white">
+        {early.keterangan}
+      </p>
+
+      <div class="min-h-[15px] flex-1 md:min-h-2"></div>
+
+      <a
+        href={tautanDaftar}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex h-12 w-full items-center justify-center rounded-2xl border border-brand-100 bg-brand-50 px-6 text-base font-heading font-semibold text-brand-500 transition hover:bg-white"
+      >
+        {labelCta}
+      </a>
+
+    </article>
+
   </div>
-  <p class="mt-6 text-center text-sm text-[#475569]">{catatan}</p>
-</div>
+
+
+{catatan && (
+  <div class="mx-auto w-full max-w-[449px]">
+    <p class="flex w-full items-start gap-2 text-left text-body-sm tracking-[0.3px] text-slate-600 md:items-center md:justify-center md:text-center">
+
+      <!-- Dot footnote -->
+      <span
+        class="mt-[6px] block size-2 shrink-0 rounded-full bg-[#94A3B8] md:mt-0"
+        aria-hidden="true"
+      ></span>
+
+      <!-- Teks footnote -->
+      <span class="min-w-0 flex-1 break-words md:flex-none">
+        {catatan}
+      </span>
+
+    </p>
+  </div>
+)}
+
+
+</section>
