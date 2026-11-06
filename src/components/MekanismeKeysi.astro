@@ -33,16 +33,16 @@ const kartu = [
       <!-- Kartu -->
       <div class="flex w-full flex-col items-start gap-4 lg:min-w-[500px] lg:flex-1">
         {kartu.map((k) => (
-          <article class="flex w-full items-start gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-            <div class="flex size-12 shrink-0 items-center justify-center rounded-[10px] border border-slate-200 bg-[#F0F6FF]">
+          <article class="flex w-full min-w-0 items-start gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:gap-5 sm:p-6">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-[10px] border border-slate-200 bg-[#F0F6FF] sm:size-12">
               <span class="block size-6" set:html={k.svg} />
             </div>
             <div class="flex min-w-0 flex-1 flex-col items-start gap-3">
-              <div class="flex w-full flex-wrap items-center gap-x-3 gap-y-2">
-                <h3 class="text-h3 font-semibold whitespace-nowrap text-slate-900">{k.judul}</h3>
+              <div class="flex w-full min-w-0 flex-wrap items-center gap-x-3 gap-y-2">
+                <h3 class="min-w-0 text-h3 font-semibold break-words text-slate-900">{k.judul}</h3>
                 <span class="rounded-md bg-[#EEEAFE] px-2 py-1 text-body-sm tracking-[0.3px] text-[#5053A2]">{k.tag}</span>
               </div>
-              <p class="text-body text-slate-600">{k.deskripsi}</p>
+              <p class="w-full text-body text-slate-600 break-words [overflow-wrap:anywhere]">{k.deskripsi}</p>
             </div>
           </article>
         ))}
