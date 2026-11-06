@@ -1,48 +1,97 @@
+
 ---
 import PricingBox from './PricingBox.astro';
 
 const tautanDaftar = 'https://forms.fillout.com/t/9w7zjLbFLAus'; // TODO: konfirmasi link KESC
 
 const ikonMonitor = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#004AAD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>`;
+
 const ikonInfo = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5053A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`;
 
 const wilayah = [
-  { no: '01', label: 'Regional 1', nama: 'Wilayah Barat', cakupan: 'Sumatera dan Jawa.' },
-  { no: '02', label: 'Regional 2', nama: 'Wilayah Tengah', cakupan: 'Kalimantan, Sulawesi, Bali dan Nusa Tenggara.' },
-  { no: '03', label: 'Regional 3', nama: 'Wilayah Timur', cakupan: 'Maluku & Papua.' },
+  {
+    no: '01',
+    label: 'Regional 1',
+    nama: 'Wilayah Barat',
+    cakupan: 'Sumatera dan Jawa.',
+  },
+  {
+    no: '02',
+    label: 'Regional 2',
+    nama: 'Wilayah Tengah',
+    cakupan: 'Kalimantan, Sulawesi, Bali dan Nusa Tenggara.',
+  },
+  {
+    no: '03',
+    label: 'Regional 3',
+    nama: 'Wilayah Timur',
+    cakupan: 'Maluku & Papua.',
+  },
 ];
 ---
 
-<section class="bg-[#F5F5F5] px-6 py-16 md:px-14 lg:px-[100px] min-[1440px]:px-[100px]">
-  <div class="mx-auto flex max-w-[1240px] flex-col gap-10 lg:flex-row lg:gap-16">
+<section class="bg-[#F5F5F5] px-5 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16 min-[1440px]:px-[100px]">
+  <div class="mx-auto flex max-w-[1240px] flex-col gap-10 lg:flex-row lg:gap-12 xl:gap-16">
+
     <!-- Intro -->
-    <div class="w-full shrink-0 lg:w-[300px]">
-      <h2 class="text-[34px] font-bold leading-[43px] text-[#0F172A]">Mekanisme Ujian</h2>
+    <div class="w-full shrink-0 lg:w-[280px] xl:w-[300px]">
+      <h2 class="text-[30px] font-bold leading-tight text-[#0F172A] sm:text-[34px] sm:leading-[43px]">
+        Mekanisme Ujian
+      </h2>
+
       <p class="mt-4 text-body text-[#475569]">
         Ujian berlangsung secara daring menggunakan CBT (Computer Based Test) dengan pengawasan
         Zoom. KESC 2027 terdiri dari dua babak: Regional dan Nasional.
       </p>
     </div>
+
     <!-- Timeline -->
     <div class="relative min-w-0 flex-1">
-      <div class="absolute left-0 top-2 h-[calc(100%-16px)] w-px bg-[#E2E8F0]" aria-hidden="true"></div>
 
-      <!-- Tahap 1 -->
-      <div class="relative pl-[33px]">
-        <span class="absolute -left-[39px] top-1.5 size-3 rounded-full bg-[#004AAD]" aria-hidden="true"></span>
-        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">PELAKSANAAN</p>
-        <h3 class="mt-1 text-[25px] font-bold leading-[34px] text-[#0F172A]">
+      <!-- Garis utama timeline -->
+      <div
+        class="absolute bottom-2 left-[5.5px] top-2 w-px bg-[#CBD8ED]"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Tahap 1: Pelaksanaan -->
+      <div class="relative pl-8">
+
+        <!-- Timeline marker -->
+        <span
+          class="absolute left-[5.5px] top-1.5 z-10 flex size-3 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-[#F0F6FF] bg-[#004AAD]"
+          aria-hidden="true"
+        ></span>
+
+        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">
+          PELAKSANAAN
+        </p>
+
+        <h3 class="mt-1 text-xl font-bold leading-snug text-[#0F172A] sm:text-[25px] sm:leading-[34px]">
           Ujian daring dengan pengawasan.
         </h3>
-        <div class="mt-5 grid gap-4 md:grid-cols-2">
-          <div class="rounded-xl border border-[#E2E8F0] bg-white p-6">
-            <span class="flex size-11 items-center justify-center rounded-lg bg-[#F0F6FF]" set:html={ikonMonitor} />
-            <p class="mt-4 text-base font-semibold text-[#0F172A]">Ujian berbasis CBT</p>
+
+        <!-- CBT dan Zoom -->
+        <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+          <!-- CBT -->
+          <div class="min-w-0 rounded-xl border border-[#DCE4EF] bg-white p-5 sm:p-6">
+            <span
+              class="flex size-11 items-center justify-center rounded-lg bg-[#F0F6FF]"
+              set:html={ikonMonitor}
+            />
+
+            <p class="mt-4 text-base font-semibold text-[#0F172A]">
+              Ujian berbasis CBT
+            </p>
+
             <p class="mt-1 text-body text-[#475569]">
               Mengerjakan soal secara daring melalui <i>Computer Based Test</i>.
             </p>
           </div>
-          <div class="rounded-xl border border-[#E2E8F0] bg-white p-6">
+
+          <!-- Zoom -->
+          <div class="min-w-0 rounded-xl border border-[#DCE4EF] bg-white p-5 sm:p-6">
             <div class="flex h-11 items-center">
               <img
                 src="/images/zoom-logo.png"
@@ -50,94 +99,151 @@ const wilayah = [
                 width="220"
                 height="50"
                 loading="lazy"
-                class="h-6 w-auto"
+                class="h-6 w-auto max-w-full object-contain"
               />
             </div>
-            <p class="mt-4 text-base font-semibold text-[#0F172A]">Pengawasan melalui Zoom</p>
+
+            <p class="mt-4 text-base font-semibold text-[#0F172A]">
+              Pengawasan melalui Zoom
+            </p>
+
             <p class="mt-1 text-body text-[#475569]">
               Mengikuti pengawasan selama pelaksanaan ujian.
             </p>
           </div>
+
         </div>
+
         <div class="my-7 h-px bg-[#E2E8F0]" aria-hidden="true"></div>
       </div>
 
-      <!-- Tahap 2 -->
-      <div class="relative pl-[33px]">
-        <span class="absolute -left-[39px] top-1.5 size-3 rounded-full bg-[#004AAD]" aria-hidden="true"></span>
-        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">BABAK REGIONAL</p>
-        <h3 class="mt-1 text-[25px] font-bold leading-[34px] text-[#0F172A]">
+      <!-- Tahap 2: Regional -->
+      <div class="relative pl-8">
+
+        <!-- Timeline marker -->
+        <span
+          class="absolute left-[5.5px] top-1.5 z-10 flex size-3 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-[#F0F6FF] bg-[#004AAD]"
+          aria-hidden="true"
+        ></span>
+
+        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">
+          BABAK REGIONAL
+        </p>
+
+        <h3 class="mt-1 text-xl font-bold leading-snug text-[#0F172A] sm:text-[25px] sm:leading-[34px]">
           Pembagian berdasarkan wilayah.
         </h3>
-        <div class="mt-5 grid gap-3 md:grid-cols-3">
+
+        <!-- Kartu Regional -->
+        <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 min-[1280px]:grid-cols-3">
+
           {
             wilayah.map((w) => (
-              <div class="rounded-xl border border-[#E2E8F0] bg-white p-5">
-                <div class="flex items-center justify-between">
-                  <span class="flex size-10 items-center justify-center rounded-lg bg-[#F0F6FF] text-base font-bold text-[#004AAD]">
+              <div class="min-w-0 rounded-xl border border-[#DCE4EF] bg-white p-5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#F0F6FF] text-base font-bold text-[#004AAD]">
                     {w.no}
                   </span>
-                  <span class="text-sm text-[#526786]">{w.label}</span>
+
+                  <span class="text-sm text-[#526786]">
+                    {w.label}
+                  </span>
                 </div>
-                <p class="mt-4 text-lg font-bold text-[#0F172A]">{w.nama}</p>
-                <p class="mt-3 text-body text-[#475569]">{w.cakupan}</p>
+
+                <p class="mt-4 text-lg font-bold text-[#0F172A]">
+                  {w.nama}
+                </p>
+
+                <p class="mt-3 text-body text-[#475569]">
+                  {w.cakupan}
+                </p>
               </div>
             ))
           }
+
         </div>
+
         <div class="my-7 h-px bg-[#E2E8F0]" aria-hidden="true"></div>
       </div>
 
-      <!-- Tahap 3 -->
-      <div class="relative pl-[33px]">
-        <span class="absolute -left-[39px] top-1.5 size-3 rounded-full bg-[#004AAD]" aria-hidden="true"></span>
-        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">BABAK NASIONAL</p>
-        <h3 class="mt-1 text-[25px] font-bold leading-[34px] text-[#0F172A]">
+      <!-- Tahap 3: Nasional -->
+      <div class="relative pl-8">
+
+        <!-- Timeline marker -->
+        <span
+          class="absolute left-[5.5px] top-1.5 z-10 flex size-3 -translate-x-1/2 items-center justify-center rounded-full border-[3px] border-[#F0F6FF] bg-[#004AAD]"
+          aria-hidden="true"
+        ></span>
+
+        <p class="text-sm font-semibold uppercase tracking-[1.5px] text-[#004AAD]">
+          BABAK NASIONAL
+        </p>
+
+        <h3 class="mt-1 text-xl font-bold leading-snug text-[#0F172A] sm:text-[25px] sm:leading-[34px]">
           Seleksi berdasarkan hasil regional.
         </h3>
-        <div class="mt-5 flex flex-col gap-6 rounded-xl border border-[#E2E8F0] bg-white p-7 md:flex-row md:items-center">
-          <p class="shrink-0 text-[64px] font-bold leading-none text-[#004AAD]">
-            <span class="mr-2 align-middle text-sm font-normal text-[#475569]">Sekitar</span>10%
+
+        <!-- Informasi kelolosan -->
+        <div class="mt-5 flex flex-col gap-5 rounded-xl border border-[#DCE4EF] bg-white p-5 sm:p-7 md:flex-row md:items-center md:gap-6">
+
+          <p class="shrink-0 text-5xl font-bold leading-none text-[#004AAD] sm:text-[64px]">
+            <span class="mr-1 align-middle text-sm font-normal text-[#475569]">
+              Sekitar
+            </span>10%
           </p>
+
           <div class="min-w-0 flex-1 md:border-l md:border-[#E2E8F0] md:pl-6">
-            <p class="text-[23px] font-bold leading-[31px] text-[#0F172A]">Lolos ke Babak Nasional</p>
+            <p class="text-xl font-bold leading-snug text-[#0F172A] sm:text-[23px] sm:leading-[31px]">
+              Lolos ke Babak Nasional
+            </p>
+
             <p class="mt-1 text-body text-[#475569]">
               Peserta peraih skor tertinggi (passing grade) sekitar 10% lolos ke babak Nasional.
             </p>
           </div>
+
         </div>
+
         <p class="mt-6 text-body text-[#0F172A]">
           Penilaian juga mencakup <b>ranking tiap regional</b>.
         </p>
-        <div class="mt-4 flex items-start gap-3.5 rounded-xl border border-[#E1DCF5] bg-[#F8F7FC] p-5">
-          <span class="shrink-0" set:html={ikonInfo} />
+
+        <!-- Catatan penilaian -->
+        <div class="mt-4 flex items-start gap-3.5 rounded-xl border border-[#E1DCF5] bg-[#F8F7FC] p-4 sm:p-5">
+
+          <span
+            class="mt-0.5 shrink-0"
+            set:html={ikonInfo}
+          />
+
           <p class="text-sm leading-[23px] text-[#475569]">
             <b class="text-[#0F172A]">Catatan penilaian</b>. Sistem babak penilaian untuk Nasional
             akan disesuaikan dengan banyaknya jumlah peserta di KESC 2027.
           </p>
+
         </div>
+
       </div>
     </div>
   </div>
 
-  
-<!-- Pricing -->
-<div class="mt-8">
-  <PricingBox
-    program="KESC"
-    tautanDaftar={tautanDaftar}
-    regular={{
-      harga: 'Rp 100.000',
-      periode: '16 Desember 2026 – 12 Januari 2027',
-      keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
-    }}
-    early={{
-      harga: 'Rp 95.000',
-      periode: '6 November – 15 Desember 2026',
-      keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
-    }}
-    catatan="Pendaftaran dibuka 6 November 2026 · ditutup 12 Januari 2027"
-  />
-</div>
+  <!-- Pricing -->
+  <div class="mx-auto mt-8 max-w-[1240px]">
+    <PricingBox
+      program="KESC"
+      tautanDaftar={tautanDaftar}
+      regular={{
+        harga: 'Rp 100.000',
+        periode: '16 Desember 2026 – 12 Januari 2027',
+        keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
+      }}
+      early={{
+        harga: 'Rp 95.000',
+        periode: '6 November – 15 Desember 2026',
+        keterangan: 'Harga per peserta untuk 1 bidang mata pelajaran.',
+      }}
+      catatan="Pendaftaran dibuka 6 November 2026 · ditutup 12 Januari 2027"
+    />
+  </div>
 
 </section>
