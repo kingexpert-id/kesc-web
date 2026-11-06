@@ -7,7 +7,6 @@ const faq = [
     list: [
       'Pas foto terbaru (close-up, wajah terlihat jelas), boleh berpakaian seragam atau bebas rapi.',
       'Kartu Pelajar atau surat keterangan dari sekolah yang mencantumkan NISN (salah satu saja sudah cukup).',
-      'Bukti transfer pembayaran pendaftaran.',
       'Alamat email aktif & nomor WhatsApp (untuk penyampaian informasi akun peserta lebih lanjut).',
     ],
   },
@@ -17,7 +16,7 @@ const faq = [
   },
   {
     t: 'Apakah KESC 2027 bisa diikuti secara individu atau tim?',
-    a: 'KESC merupakan kompetisi sains yang diikuti secara individu (mandiri), bukan tim. Kalau kamu tertarik berkompetisi secara tim, kamu bisa coba King Expert Young Science Ideation (KEYSI) yang membuka pendaftaran individu maupun tim. Perlombaan KESC merupakan kompetisi sains untuk individu bukan tim.',
+    a: 'KESC merupakan kompetisi sains yang diikuti secara individu (mandiri). Kalau kamu tertarik berkompetisi secara tim, kamu bisa coba King Expert Young Science Ideation (KEYSI) yang membuka pendaftaran individu maupun tim. Perlombaan KESC merupakan kompetisi sains untuk individu bukan tim.',
   },
   {
     t: 'Apakah sekolah bisa mendaftarkan siswanya secara kolektif untuk KESC 2027?',
@@ -37,11 +36,12 @@ const faq = [
   },
   {
     t: 'Apakah boleh mengikuti kompetisi KESC menggunakan HP atau smartphone?',
-    a: 'Boleh. Para peserta dapat menggunakan HP/Smartphone sebagai perangkat utama untuk mengerjakan soal, namun tetap siapkan 1 perangkat tambahan (HP atau laptop lain) untuk pengawasan melalui via Zoom selama ujian berlangsung.',
+    a: 'Boleh. Para peserta dapat menggunakan HP/Smartphone sebagai perangkat utama untuk mengerjakan soal, namun tetap siapkan 1 perangkat tambahan (HP atau laptop lain) untuk pengawasan melalui Zoom selama ujian berlangsung.',
   },
   {
     t: 'Apakah ada kisi-kisi atau contoh soal KESC 2027?',
-    a: 'Tim KESC tidak menyediakan kisi-kisi maupun contoh soal secara khusus. Namun, kamu bisa mempelajari Silabus materi lengkap yang tersedia di Panduan (Guidebook) KESC 2027.',
+    a: 'Kamu bisa mengakses soal dan pembahasan KESC 2025 & 2026 melalui halaman Pengumuman / Akses Soal & Pembahasan KESC 2025–2026. Selain itu, kamu juga dapat mempelajari silabus melalui Guidebook KESC 2027.',
+    link: 'https://forms.fillout.com/t/hmPh11LdZVus',
   },
   {
     t: 'Berapa lama durasi ujian dan apakah ada batas waktu per soal?',
@@ -76,6 +76,17 @@ const faq = [
             ) : (
               <p class="whitespace-pre-line">{f.a}</p>
             )}
+            {f.link && (
+              <a
+                href={f.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#7656D8] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#6041C0]"
+              >
+                Akses Soal & Pembahasan KESC 2025–2026
+                <span set:html={chevron} class="inline-block -rotate-90" />
+              </a>
+            )}  
           </div>
         </details>
       ))
