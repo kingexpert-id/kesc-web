@@ -1,5 +1,6 @@
 ---
 interface Props {
+  variant?: 'KESC' | 'KEYSI';
   gambarPoster?: string;
   altPoster?: string;
   badge?: string;
@@ -7,13 +8,23 @@ interface Props {
   judul?: string;
   intro?: string;
 }
+
 const {
-  gambarPoster = '/images/poster-kesc.png',
-  altPoster = 'Poster resmi KESC 2027',
+  variant = 'KESC',
+  gambarPoster = variant === 'KEYSI'
+    ? '/images/poster-keysi.png'
+    : '/images/poster-kesc.png',
+  altPoster = variant === 'KEYSI'
+    ? 'Poster resmi KEYSI 2027'
+    : 'Poster resmi KESC 2027',
   badge = '★ EARLY BIRD DISKON',
   overline = 'INFORMASI LENGKAP',
-  judul = 'Semua Info KESC 2027 dalam Satu Poster',
-  intro = 'Lihat ringkasan lengkap kompetisi langsung dari poster resmi — jadwal, kategori, dan biaya dalam satu tampilan.',
+  judul = variant === 'KEYSI'
+    ? 'Semua Info KEYSI 2027 dalam Satu Poster'
+    : 'Semua Info KESC 2027 dalam Satu Poster',
+  intro = variant === 'KEYSI'
+    ? 'Lihat ringkasan lengkap kompetisi langsung dari poster resmi — jadwal, topik esai, dan biaya dalam satu tampilan.'
+    : 'Lihat ringkasan lengkap kompetisi langsung dari poster resmi — jadwal, kategori, dan biaya dalam satu tampilan.',
 } = Astro.props;
 
 const ikon = (path: string) =>
@@ -21,22 +32,28 @@ const ikon = (path: string) =>
 const sorotan = [
   {
     judul: 'Alur & Jadwal',
-    deskripsi: 'Pendaftaran 6 Nov 2026 – 12 Jan 2027',
+    deskripsi: variant === 'KEYSI'
+      ? 'Pendaftaran 6 Nov 2026 – 18 Jan 2027'
+      : 'Pendaftaran 6 Nov 2026 – 12 Jan 2027',
     svg: ikon('<path d="M4.16667 3.33333H15.8333C16.7538 3.33333 17.5 4.07953 17.5 5V16.6667C17.5 17.5871 16.7538 18.3333 15.8333 18.3333H4.16667C3.24619 18.3333 2.5 17.5871 2.5 16.6667V5C2.5 4.07953 3.24619 3.33333 4.16667 3.33333Z" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/><path d="M13.3333 1.66667V5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/><path d="M6.66667 1.66667V5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/><path d="M2.5 8.33333H17.5" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
   },
   {
-    judul: 'Kategori Lomba',
-    deskripsi: 'SD, SMP, SMA — Matematika, IPA, Fisika, dll.',
+    judul: variant === 'KEYSI' ? 'Topik Esai' : 'Kategori Lomba',
+    deskripsi: variant === 'KEYSI'
+      ? 'Lingkungan & Keberlanjutan, Ekonomi, Teknologi, dll.'
+      : 'SD, SMP, SMA — Matematika, IPA, Fisika, dll.',
     svg: ikon('<path d="M2.5 5.83333V14.1667C2.5 14.6087 2.67559 15.0326 2.98816 15.3452C3.30072 15.6577 3.72464 15.8333 4.16667 15.8333H15.8333C16.2754 15.8333 16.6993 15.6577 17.0118 15.3452C17.3244 15.0326 17.5 14.6087 17.5 14.1667V7.5C17.5 7.05797 17.3244 6.63405 17.0118 6.32149C16.6993 6.00893 16.2754 5.83333 15.8333 5.83333H10.8333L9.16667 4.16667H4.16667C3.72464 4.16667 3.30072 4.34226 2.98816 4.65482C2.67559 4.96738 2.5 5.39131 2.5 5.83333Z" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
   },
   {
     judul: 'Biaya Early Bird',
-    deskripsi: 'Mulai Rp 95.000 / peserta',
+    deskripsi: variant === 'KEYSI'
+      ? 'Rp 118.750 / peserta atau tim'
+      : 'Mulai Rp 95.000 / peserta',
     svg: ikon('<path d="M17.1583 11.175L11.1833 17.15C11.0285 17.305 10.8447 17.4279 10.6424 17.5118C10.4401 17.5956 10.2232 17.6388 10.0042 17.6388C9.78514 17.6388 9.56826 17.5956 9.36593 17.5118C9.1636 17.4279 8.97979 17.305 8.825 17.15L1.66667 10V1.66667H10L17.1583 8.825C17.4688 9.13727 17.643 9.55969 17.643 10C17.643 10.4403 17.4688 10.8627 17.1583 11.175Z" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/><path d="M5.83333 5.83333H5.84167" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
   },
   {
     judul: 'Kontak Admin',
-    deskripsi: '0851 8321 3414 • bit.ly/PanduanKESC2027',
+    deskripsi: '0851 8321 3414 (WhatsApp)',
     svg: ikon('<path d="M18.3333 14.1V16.6C18.3343 16.8321 18.2867 17.0618 18.1938 17.2745C18.1008 17.4871 17.9644 17.678 17.7934 17.8349C17.6224 17.9918 17.4205 18.1112 17.2006 18.1856C16.9808 18.2599 16.7478 18.2876 16.5167 18.2667C13.9524 17.988 11.4892 17.1118 9.325 15.7083C7.31152 14.4289 5.60445 12.7218 4.325 10.7083C2.91665 8.53434 2.0402 6.05916 1.76667 3.48333C1.74584 3.25289 1.77323 3.02063 1.84708 2.80135C1.92094 2.58207 2.03964 2.38057 2.19564 2.20968C2.35163 2.03879 2.5415 1.90226 2.75316 1.80877C2.96481 1.71528 3.19362 1.66688 3.425 1.66667H5.925C6.32942 1.66269 6.72149 1.8059 7.02813 2.06961C7.33478 2.33332 7.53506 2.69954 7.59167 3.1C7.69167 3.775 7.9 4.43333 8.19167 5.05C8.30379 5.34827 8.32805 5.67243 8.26159 5.98407C8.19513 6.29571 8.04072 6.58176 7.81667 6.80833L6.74167 8.25833C7.92796 10.3446 9.65538 12.072 11.7417 13.2583L13.1917 12.4167C13.4182 12.1926 13.7043 12.0382 14.0159 11.9717C14.3276 11.9053 14.6517 11.9295 14.95 12.0417C15.5667 12.3333 16.225 12.5417 16.9 12.6417C17.267 12.691 17.607 12.8611 17.8666 13.1252C18.1261 13.3893 18.2904 13.7322 18.3333 14.1Z" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" stroke="#004AAD"/>'),
   },
 ];
@@ -50,10 +67,11 @@ const sorotan = [
       <img
         src={gambarPoster}
         alt={altPoster}
-        width="840"
-        height="1048"
+        width="1080"
+        height="1350"
         loading="lazy"
-        class="relative aspect-[420/524] w-full rounded-2xl border border-slate-200 object-cover shadow-[0_4px_6px_rgba(15,23,42,0.10)]"
+        decoding="async"
+      class="relative aspect-[4/5] w-full rounded-2xl border border-slate-200 object-contain shadow-[0_4px_6px_rgba(15,23,42,0.10)]"
       />
       <span class="absolute top-4 left-4 rounded-full bg-[#F5B903] px-3.5 py-1.5 text-xs leading-[17px] font-semibold text-slate-900 shadow-[0_1px_3px_rgba(15,23,42,0.10)]">
         {badge}
