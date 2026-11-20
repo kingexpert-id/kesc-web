@@ -121,4 +121,3 @@ Repository ini menggunakan dua *branch* utama untuk menjaga kestabilan situs pro
 ## Pengelola Proyek
 
 - **Penyelenggara:** King Expert (`@kingexpert-id`)
-- **Web Designer & Maintainer:** Hafizul Ihsan (`@hfzlihsan`)
