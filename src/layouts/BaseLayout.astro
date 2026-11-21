@@ -7,11 +7,15 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 const {
   title = 'King Expert Science Competition 2027',
   description = 'KESC & KEYSI 2027 — kompetisi sains dan esai ilmiah nasional untuk SD hingga mahasiswa. Daftarkan timmu sekarang!',
+  image = '/images/hero-ilustrasi.png',
 } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
 ---
 <!doctype html>
 <html lang="id">
@@ -20,6 +24,19 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KESC & KEYSI 2027" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).href} />
     <link rel="icon" type="image/png" href="/images/logo-kesc.png" />
     <!-- Fonts: Poppins 600/700 + Noto Sans 400/500 — sesuai DS 2.7.5 (tanpa Poppins 500) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
