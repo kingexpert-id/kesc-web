@@ -12,16 +12,16 @@ const jumlahCabang = subjects.length;
 
 <article
   class:list={[
-    'w-full min-w-0 overflow-clip rounded-2xl border border-slate-200 bg-[#FAFAFA]',
+    'group w-full min-w-0 overflow-clip rounded-2xl border border-slate-200 bg-[#FAFAFA] transition-all duration-150 ease-standard hover:border-brand-500 hover:shadow-[0_10px_24px_rgba(15,23,42,0.14)]',
     className,
   ]}
 >
   <!-- Header gradient + avatar -->
   <div
-    class="relative overflow-clip bg-[linear-gradient(165.2deg,#1E2B65_0%,#373C86_55%,#5053A2_100%)] px-6 py-6 lg:py-4"
+    class="relative overflow-clip bg-[linear-gradient(165.2deg,#1E2B65_0%,#373C86_76%,#5053A2_100%)] px-6 py-6 lg:py-4"
   >
     <div>
-      <h3 class="text-h3 font-semibold text-[#FAFAFA]">{name}</h3>
+      <h3 class="text-h3 font-semibold text-[#FAFAFA] transition-colors duration-150 ease-standard group-hover:text-brand-200">{name}</h3>
       <p class="text-body-sm tracking-[0.3px] text-[#FAFAFA]/90">Sederajat</p>
     </div>
     <img
